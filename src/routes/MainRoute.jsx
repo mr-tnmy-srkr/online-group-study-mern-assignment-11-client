@@ -34,6 +34,10 @@ const MainRoute = createBrowserRouter([
             path: 'signup',
             element: <LoginPrivate><Register /></LoginPrivate>,
           },
+          {
+            path: 'create-assignment',
+            element: <LoginPrivate><Register /></LoginPrivate>,
+          },
         ],
       },
      

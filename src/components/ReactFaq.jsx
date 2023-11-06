@@ -6,27 +6,25 @@ const data = {
     title: "FAQ",
     rows: [
         {
-            title: "Lorem ipsum dolor sit amet,",
-            content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-              ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-              In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-              Fusce sed commodo purus, at tempus turpis.`,
+            title: "What is the purpose of this online group study assignment website?",
+            content: `The purpose of this website is to facilitate collaboration and communication among students or group members for completing assignments and projects together.`,
         },
         {
-            title: "Nunc maximus, magna at ultricies elementum",
+            title: "How can I create an account on this website?",
             content:
-                "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
+                `Typically, you can create an account by clicking on the "Sign Up" or "Register" button and providing the required information, such as your name, email, and password.`,
         },
         {
             title: "Curabitur laoreet, mauris vel blandit fringilla",
-            content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
+            content: `Yes, many online group study assignment websites allow users to join or create multiple study groups or courses, depending on their needs and interests.`,
         },
         {
-            title: "What is the package version",
-            content: <p>current version is 1.2.1</p>,
+            title: "Can I upload and share documents or assignments on this website?",
+            content: "Yes, you can typically upload and share documents, assignments, and other relevant files within your study group for collaboration and feedback.",
+        },
+        {
+            title: "What do I do if there are conflicts or issues within my study group?",
+            content: "You can often reach out to a group administrator or moderator for assistance in resolving conflicts. Communication and understanding among group members are essential for a harmonious experience.",
         },
     ],
 };
@@ -40,9 +38,9 @@ const styles = {
 };
 
 const config = {
-    // animate: true,
+    animate: true,
     // arrowIcon: "V",
-    // tabFocus: true
+    tabFocus: true
 };
 
 const ReactFaq = () => {

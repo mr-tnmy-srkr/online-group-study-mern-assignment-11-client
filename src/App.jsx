@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="max-w-7xl mx-auto">
        <MainLayout>
         <Outlet></Outlet>
        </MainLayout>

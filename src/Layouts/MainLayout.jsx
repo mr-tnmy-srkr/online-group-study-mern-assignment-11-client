@@ -1,59 +1,12 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 import Logo from "../components/Logo";
+import Navbar from "../components/Navbar";
 
 const MainLayout = ({ children }) => {
-  const NavItems = (
-    <>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          isActive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"
-        }
-      >
-        Home
-      </NavLink>
-
-      <NavLink
-        to="/assignments"
-        className={({ isActive }) =>
-          isActive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"
-        }
-      >
-        Assignments
-      </NavLink>
-
-      <NavLink
-        to="/about"
-        className={({ isActive }) =>
-          isActive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"
-        }
-      >
-        About
-      </NavLink>
-
-      <NavLink
-        to="/login"
-        className={({ isActive }) =>
-          isActive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"
-        }
-      >
-        Login
-      </NavLink>
-
-      <NavLink
-        to="/signup"
-        className={({ isActive }) =>
-          isActive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"
-        }
-      >
-        Signup
-      </NavLink>
-    </>
-  );
+ 
 
   return (
-    <div>
+    <div className="">
       <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
@@ -86,7 +39,7 @@ const MainLayout = ({ children }) => {
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
-                {NavItems}
+              <Navbar></Navbar>
               </ul>
             </div>
           </div>
@@ -99,9 +52,9 @@ const MainLayout = ({ children }) => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200">
+          <ul className="menu p-4 w-80 min-h-full bg-base-200 menu-vertical">
             {/* Sidebar content here */}
-            {NavItems}
+            <Navbar></Navbar>
           </ul>
         </div>
       </div>

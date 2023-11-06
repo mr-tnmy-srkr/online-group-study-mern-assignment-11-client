@@ -1,10 +1,10 @@
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginAnimation from "../assets/animations/Animation - 1699247001720.json";
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import SocialLogin from "../components/SocialLogin";
 import Lottie from "lottie-react";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const [userName, setUserName] = useState("");
@@ -12,13 +12,40 @@ const Register = () => {
   const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { createUser, googleLogin } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
 console.log(userName,email,photoUrl,password,confirmPassword);
+
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (confirmPassword !== password) {
+      toast.error('Confirm password should be same with password');
+      return;
+    }
+
+    const toastId = toast.loading('Creating user ...');
+
+    try {
+      const user = await createUser(email, password);
+      const updateUser = await updateUserProfile(userName,photoUrl)
+      console.log(user.user)
+     if(user.user ){
+        toast.success('User Created Successfully', { id: toastId });
+        navigate('/');
+     }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message, { id: toastId });
+    }
+  };
+
   return (
     <div>
       <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto">
         <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form className="card-body" onSubmit={handleSubmit}>
           <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>

@@ -7,34 +7,33 @@ import Lottie from "lottie-react";
 import toast from "react-hot-toast";
 
 const Register = () => {
-    const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
-console.log(userName,email,photoUrl,password,confirmPassword);
+  console.log(userName, email, photoUrl, password, confirmPassword);
 
-
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (confirmPassword !== password) {
-      toast.error('Confirm password should be same with password');
+      toast.error("Confirm password should be same with password");
       return;
     }
 
-    const toastId = toast.loading('Creating user ...');
+    const toastId = toast.loading("Creating user ...");
 
     try {
       const user = await createUser(email, password);
-      const updateUser = await updateUserProfile(userName,photoUrl)
-      console.log(user.user)
-     if(user.user ){
-        toast.success('User Created Successfully', { id: toastId });
-        navigate('/');
-     }
+      const updateUser = await updateUserProfile(userName, photoUrl);
+      console.log(user.user);
+      if (user.user) {
+        toast.success("User Created Successfully", { id: toastId });
+        navigate("/");
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.message, { id: toastId });
@@ -46,7 +45,7 @@ const handleSubmit = async (e) => {
       <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto">
         <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleSubmit}>
-          <div className="form-control">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -54,7 +53,7 @@ const handleSubmit = async (e) => {
                 type="name"
                 placeholder="Name"
                 className="input input-bordered"
-                onKeyUp={(e) => setUserName(e.target.value)}
+                onInput={(e) => setUserName(e.target.value)}
                 autoComplete="on"
                 required
               />
@@ -67,7 +66,7 @@ const handleSubmit = async (e) => {
                 type="photo"
                 placeholder="Image link"
                 className="input input-bordered"
-                onKeyUp={(e) => setPhotoUrl(e.target.value)}
+                onInput={(e) => setPhotoUrl(e.target.value)}
                 autoComplete="on"
                 required
               />
@@ -80,7 +79,7 @@ const handleSubmit = async (e) => {
                 type="email"
                 placeholder="Email"
                 className="input input-bordered"
-                onKeyUp={(e) => setEmail(e.target.value)}
+                onInput={(e) => setEmail(e.target.value)}
                 autoComplete="on"
                 required
               />
@@ -95,7 +94,7 @@ const handleSubmit = async (e) => {
                 className="input input-bordered"
                 autoComplete="on"
                 required
-                onKeyUp={(e) => setPassword(e.target.value)}
+                onInput={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="form-control">
@@ -108,11 +107,11 @@ const handleSubmit = async (e) => {
                 className="input input-bordered"
                 autoComplete="on"
                 required
-                onKeyUp={(e) => setConfirmPassword(e.target.value)}
+                onInput={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <p className="text-center text-sm">
-             Already have an account ?{" "}
+              Already have an account ?{" "}
               <Link
                 to="/login"
                 className="text-[#fc9f11] font-bold hover:underline cursor-pointer "
@@ -132,8 +131,8 @@ const handleSubmit = async (e) => {
           </form>
         </div>
         <div className="flex-1 max-w-[400px] hidden md:block">
-        <Lottie animationData={LoginAnimation} loop={true} />
-      </div>
+          <Lottie animationData={LoginAnimation} loop={true} />
+        </div>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
-import { Bars } from "react-loader-spinner";
+// import { Bars } from "react-loader-spinner";
 import PropTypes from "prop-types";
 import useAuth from "../hooks/useAuth";
 
 const LoginPrivate = ({ children }) => {
   const { user, loading } = useAuth();
 
-  if (loading) {
+ /*  if (loading) {
     return (
       <div className="h-[90vh] flex justify-center items-center">
         <Bars
@@ -20,7 +20,7 @@ const LoginPrivate = ({ children }) => {
         />
       </div>
     );
-  }
+  } */
 
   if (user) {
     return <Navigate to="/"></Navigate>;

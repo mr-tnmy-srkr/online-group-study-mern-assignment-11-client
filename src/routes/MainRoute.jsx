@@ -7,6 +7,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import About from "../pages/About";
 import LoginPrivate from "./LoginPrivate";
+import CreateAssignment from "../pages/CreateAssignment";
+import PrivateRoute from "./privateRoute";
 
 const MainRoute = createBrowserRouter([
     {
@@ -36,7 +38,7 @@ const MainRoute = createBrowserRouter([
           },
           {
             path: 'create-assignment',
-            element: <LoginPrivate><Register /></LoginPrivate>,
+            element: <PrivateRoute><CreateAssignment /></PrivateRoute>,
           },
         ],
       },

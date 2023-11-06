@@ -21,11 +21,11 @@ export default function ErrorPage() {
           <div className="text-black">
             <h1>Oops!</h1>
             <p>Sorry, an unexpected error has occurred.</p>
-            <p>
+            <p className="mb-8">
               <i>{error.statusText || error.message}</i>
             </p>
             <Link to="/">
-              <button className="btn btn-primary text-black capitalize mt-4">
+              <button className="btn button bg-[#fc9f11] text-white capitalize">
                 Go Back to Home
               </button>
             </Link>

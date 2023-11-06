@@ -13,7 +13,7 @@ const MainLayout = ({ children }) => {
     <div className="">
       {user && (
         <marquee className="text-center text-white bg-black py-2 font-medium">
-          🙂🙂Welcome Mr. {user?.displayName} 🙋‍♂️. Now You Can Create,Take,Submit
+          🙂🙂Welcome Mr. {user.displayName} 🙋‍♂️. Now You Can Create,Take,Submit
           and Review Your Assignment🙂🙂
         </marquee>
       )}

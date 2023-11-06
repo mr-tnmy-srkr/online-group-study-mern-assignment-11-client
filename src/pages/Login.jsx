@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { signIn, logOut } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   console.log(email, password);
 
@@ -25,7 +25,7 @@ const Login = () => {
       console.log(user.user.email);
       if (user.user) {
         toast.success("Logged in successful", { id: toastId });
-        navigate(location?.state ? location.state : '/')
+        navigate(location?.state ? location.state : "/");
       }
     } catch (error) {
       toast.error(error.message, { id: toastId });
@@ -44,7 +44,7 @@ const Login = () => {
               type="email"
               placeholder="Email"
               className="input input-bordered"
-              onKeyUp={(e) => setEmail(e.target.value)}
+              onInput={(e) => setEmail(e.target.value)}
               required
               autoComplete="on"
             />
@@ -59,7 +59,7 @@ const Login = () => {
               className="input input-bordered"
               autoComplete="on"
               required
-              onKeyUp={(e) => setPassword(e.target.value)}
+              onInput={(e) => setPassword(e.target.value)}
             />
           </div>
           <p className="text-center text-sm">

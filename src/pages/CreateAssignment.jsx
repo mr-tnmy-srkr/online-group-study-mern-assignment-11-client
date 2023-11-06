@@ -120,9 +120,9 @@ const CreateAssignment = () => {
                   //     status: "pending",
                   //   })
                   // }
-                  className="btn btn-primary"
+                  className="btn button button.active bg-[#fc9f11]"
                 >
-                  Book
+                Create Assignment
                 </button>
               </div>
             </form>

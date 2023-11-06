@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import SocialLogin from "../components/SocialLogin";
 import toast from "react-hot-toast";
 
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,8 +43,8 @@ const Login = () => {
             </label>
             <input
               type="email"
-              placeholder="Email"
-              className="input input-bordered"
+              placeholder="✉️ Email"
+              className="input input-bordered w-full"
               onInput={(e) => setEmail(e.target.value)}
               required
               autoComplete="on"
@@ -55,7 +56,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="🔑 Password"
               className="input input-bordered"
               autoComplete="on"
               required

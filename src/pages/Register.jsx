@@ -51,7 +51,7 @@ const Register = () => {
               </label>
               <input
                 type="name"
-                placeholder="Name"
+                placeholder="✍️ Name"
                 className="input input-bordered"
                 onInput={(e) => setUserName(e.target.value)}
                 autoComplete="on"
@@ -64,7 +64,7 @@ const Register = () => {
               </label>
               <input
                 type="photo"
-                placeholder="Image link"
+                placeholder="📷 Image link"
                 className="input input-bordered"
                 onInput={(e) => setPhotoUrl(e.target.value)}
                 autoComplete="on"
@@ -77,7 +77,7 @@ const Register = () => {
               </label>
               <input
                 type="email"
-                placeholder="Email"
+                placeholder="✉️ Email"
                 className="input input-bordered"
                 onInput={(e) => setEmail(e.target.value)}
                 autoComplete="on"
@@ -90,7 +90,7 @@ const Register = () => {
               </label>
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="🔑 Password"
                 className="input input-bordered"
                 autoComplete="on"
                 required
@@ -103,7 +103,7 @@ const Register = () => {
               </label>
               <input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="🔑 Confirm Password"
                 className="input input-bordered"
                 autoComplete="on"
                 required

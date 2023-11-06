@@ -28,16 +28,41 @@ const Sidebar = () => {
         Assignments
       </NavLink>
 
-      <NavLink
-        to="/about"
-        className={({ isActive }) =>
-          isActive
-            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-            : "btn btn-ghost btn-sm"
-        }
-      >
-        About
-      </NavLink>
+      {user && (
+        <>
+          <NavLink
+            to="/create-assignment"
+            className={({ isActive }) =>
+              isActive
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
+                : "btn btn-ghost btn-sm"
+            }
+          >
+            Create Assignment
+          </NavLink>
+        
+          <NavLink
+            to="/my-assignment"
+            className={({ isActive }) =>
+              isActive
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
+                : "btn btn-ghost btn-sm"
+            }
+          >
+            My Assignments
+          </NavLink>
+          <NavLink
+            to="/submitted-assignment"
+            className={({ isActive }) =>
+              isActive
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
+                : "btn btn-ghost btn-sm"
+            }
+          >
+            Submitted Assignments
+          </NavLink>
+        </>
+      )}
 
       {!user && (
         <>

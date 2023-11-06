@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LoginAnimation from "../assets/animations/Animation - 1699247001720.json";
 import useAuth from "../hooks/useAuth";
@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { signIn, logOut } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation()
 
   console.log(email, password);
 
@@ -24,7 +25,7 @@ const Login = () => {
       console.log(user.user.email);
       if (user.user) {
         toast.success("Logged in successful", { id: toastId });
-        navigate("/");
+        navigate(location?.state ? location.state : '/')
       }
     } catch (error) {
       toast.error(error.message, { id: toastId });

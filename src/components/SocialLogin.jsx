@@ -2,11 +2,12 @@ import { BsGithub } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleLogin, githubLogin } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation()
 
   const handleSocialLogin = async (media) => {
     const toastId = toast.loading("Logging in ...");
@@ -15,7 +16,7 @@ const SocialLogin = () => {
       console.log("see",user);
       if (user.user) {
         toast.success("Logged in successful", { id: toastId });
-        navigate("/");
+        navigate(location?.state ? location.state : '/')
       }
     } catch (error) {
       toast.error(error.message, { id: toastId });

@@ -6,8 +6,9 @@ import Assignments from "../pages/Assignments";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import About from "../pages/About";
+import LoginPrivate from "./LoginPrivate";
 
-const mainRoutes = createBrowserRouter([
+const MainRoute = createBrowserRouter([
     {
         path: '/',
         element: <App />,
@@ -27,16 +28,16 @@ const mainRoutes = createBrowserRouter([
           },
           {
             path: 'login',
-            element: <Login />,
+            element: <LoginPrivate><Login /></LoginPrivate>,
           },
           {
             path: 'signup',
-            element: <Register />,
+            element: <LoginPrivate><Register /></LoginPrivate>,
           },
         ],
       },
      
   ]);
   
-  export default mainRoutes;
+  export default MainRoute;
   

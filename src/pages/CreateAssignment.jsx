@@ -1,13 +1,15 @@
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import Lottie from "lottie-react";
+import toast from 'react-hot-toast';
 import createAnimation from "../assets/animations/Animation - 1699267425557.json";
 import DatePicker from "react-datepicker";
+import { useMutation } from "@tanstack/react-query";
+import useAxios from "../hooks/useAxios";
 
 const CreateAssignment = () => {
   const { user } = useAuth();
-  // console.log(user.email);
-  // console.log(auth.currentUser.email);
+  console.log(user.email);
   const [startDate, setStartDate] = useState(new Date());
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -15,8 +17,19 @@ const CreateAssignment = () => {
   const [date, setDate] = useState("");
   const [DifficultyLevel, setDifficultyLevel] = useState("");
   const [description, setDescription] = useState("");
+  const axios = useAxios()
 
   console.log(title, thumbnail, marks, date, DifficultyLevel, description);
+
+  const { mutate } = useMutation({
+    mutationKey: ["assignment"],
+    mutationFn: async (assignmentData) => {
+      return axios.post("/user/create-assignment", assignmentData);
+    },
+    onSuccess: () => {
+      toast.success('Assignment creation successful')
+    }
+  });
 
   return (
     <div>
@@ -30,7 +43,7 @@ const CreateAssignment = () => {
             />
           </div>
           <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto">
-            <form className="card-body">
+            <form className="card-body" >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Title</span>
@@ -102,6 +115,7 @@ const CreateAssignment = () => {
                   rows={12}
                   className="input input-bordered"
                   placeholder="Description"
+                  required
                   onInput={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
@@ -109,17 +123,17 @@ const CreateAssignment = () => {
               <div className="form-control mt-2">
                 <button
                   type="button"
-                  // onClick={() =>
-                  //   mutate({
-                  //     customerName,
-                  //     email,
-                  //     date,
-                  //     timeSlot,
-                  //     address,
-                  //     service: service?.data?.name,
-                  //     status: "pending",
-                  //   })
-                  // }
+                  onClick={() =>
+                    mutate({
+                      title,
+                      thumbnail,
+                      marks,
+                      date,
+                      DifficultyLevel,
+                      description,
+                      user : user.email
+                    })
+                  }
                   className="btn button button.active bg-[#fc9f11]"
                 >
                 Create Assignment

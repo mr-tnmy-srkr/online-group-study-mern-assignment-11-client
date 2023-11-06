@@ -4,14 +4,20 @@ import NavItems from "../components/NavItems";
 import Sidebar from "../components/Sidebar";
 import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Footer from "../components/Footer";
 
 const MainLayout = ({ children }) => {
-    const { user, logOut } = useAuth();
-
+  const { user, logOut } = useAuth();
 
   return (
     <div className="">
-      <div className="drawer">
+      {user && (
+        <marquee className="text-center text-white bg-black py-2 font-medium">
+          🙂🙂Welcome Mr. {user?.displayName} 🙋‍♂️. Now You Can Create,Take,Submit
+          and Review Your Assignment🙂🙂
+        </marquee>
+      )}
+      <div className="drawer -mt-1">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
@@ -87,6 +93,10 @@ const MainLayout = ({ children }) => {
           </div>
           {/* Page content here */}
           {children}
+           {/* footer */}
+          <div>
+            <Footer></Footer>
+          </div>
         </div>
         <div className="drawer-side">
           <label

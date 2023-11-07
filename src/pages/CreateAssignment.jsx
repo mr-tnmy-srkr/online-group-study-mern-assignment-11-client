@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
@@ -11,19 +10,32 @@ import { useNavigate } from "react-router-dom";
 const CreateAssignment = () => {
   const { user } = useAuth();
   console.log(user.email);
-  // const [startDate, setStartDate] = useState(new Date());
-  const [title, setTitle] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
-  const [marks, setMarks] = useState("");
-  const [date, setDate] = useState("");
-  const [DifficultyLevel, setDifficultyLevel] = useState("Easy");
-  const [description, setDescription] = useState("");
   const axios = useAxios();
   const navigate = useNavigate();
 
-  console.log(title, thumbnail, marks, date, DifficultyLevel, description);
+  const handleCreateAssignment = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const thumbnail = form.thumbnail.value;
+    const marks = form.marks.value;
+    const date = form.date.value;
+    const difficultyLevel = form.difficulty.value;
+    const description = form.description.value;
+    console.log(title, thumbnail, marks, date, difficultyLevel, description);
+    mutate({
+          title,
+          thumbnail,
+          marks,
+          date,
+          difficultyLevel,
+          description,
+          user: user.email,
+        })
+      };
 
-  const { mutate } = useMutation({
+
+   const { mutate } = useMutation({
     mutationKey: ["assignment"],
     mutationFn: async (assignmentData) => {
       return axios.post("/user/create-assignment", assignmentData);
@@ -32,7 +44,7 @@ const CreateAssignment = () => {
       toast.success("Assignment creation successful");
       navigate("/assignments");
     },
-  });
+  }); 
 
   return (
     <div>
@@ -46,17 +58,17 @@ const CreateAssignment = () => {
             />
           </div>
           <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleCreateAssignment}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Title</span>
                 </label>
                 <input
                   type="text"
+                  name="title"
                   placeholder="Title"
                   className="input input-bordered"
                   required
-                  onInput={(e) => setTitle(e.target.value)}
                 />
               </div>
               <div className="form-control">
@@ -66,9 +78,9 @@ const CreateAssignment = () => {
                 <input
                   type="text"
                   placeholder="Image Link"
+                  name="thumbnail"
                   className="input input-bordered"
                   required
-                  onInput={(e) => setThumbnail(e.target.value)}
                 />
               </div>
               <div className="form-control">
@@ -78,11 +90,11 @@ const CreateAssignment = () => {
                 <input
                   type="number"
                   placeholder="Marks"
+                  name="marks"
                   className="input input-bordered"
                   max={100}
                   min={1}
                   required
-                  onInput={(e) => setMarks(e.target.value)}
                 />
               </div>
               <div className="form-control">
@@ -91,9 +103,9 @@ const CreateAssignment = () => {
                 </label>
                 <input
                   type="date"
+                  name="date"
                   className="input input-bordered"
                   required
-                  onInput={(e) => setDate(e.target.value)}
                 />
                 {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
               </div>
@@ -101,13 +113,11 @@ const CreateAssignment = () => {
                 <label className="label">
                   <span className="label-text">Difficulty Level</span>
                 </label>
-                <select
-                  className="input input-bordered"
-                  onChange={(e) => setDifficultyLevel(e.target.value)}
-                >
-                  <option>Easy</option>
-                  <option>Medium</option>
-                  <option>Hard</option>
+                <select name="difficulty" className="input input-bordered" required>
+                  <option value="">Select a Level</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
                 </select>
               </div>
               <div className="form-control">
@@ -117,26 +127,15 @@ const CreateAssignment = () => {
                 <textarea
                   rows={12}
                   className="input input-bordered"
+                  name="description"
                   placeholder="Description"
                   required
-                  onInput={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
 
               <div className="form-control mt-2">
                 <button
-                  type="button"
-                  onClick={() =>
-                    mutate({
-                      title,
-                      thumbnail,
-                      marks,
-                      date,
-                      DifficultyLevel,
-                      description,
-                      user: user.email,
-                    })
-                  }
+                  type="submit"
                   className="btn button button.active bg-[#fc9f11]"
                 >
                   Create Assignment

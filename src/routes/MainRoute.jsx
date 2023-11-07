@@ -28,6 +28,7 @@ const MainRoute = createBrowserRouter([
           {
             path: 'assignments/update-assignment/:id',
             element: <UpdateAssignment></UpdateAssignment>,
+            // loader: (params)=>fetch(`http://localhost:5000/api/v1/assignments/${params.id}`)
           },
           {
             path: 'about',

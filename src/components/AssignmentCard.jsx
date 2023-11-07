@@ -8,7 +8,7 @@ const AssignmentCard = ({ assignment }) => {
     thumbnail,
     marks,
     date,
-    DifficultyLevel,
+    difficultyLevel,
     description,
     user,
   } = assignment || {};
@@ -16,7 +16,7 @@ const AssignmentCard = ({ assignment }) => {
   return (
     <div className="">
       <div className=" flex-col group max-w-2xl rounded-3xl border border-gray-100 bg-gray-200 p-6 shadow-2xl  sm:p-8">
-        <p>{DifficultyLevel}</p>
+        <p>{difficultyLevel}</p>
         <div className="  overflow-hidden rounded-xl shadow-xl shadow-amber-600/40 transition duration-500 group-hover:scale-105 group-hover:shadow-md">
           <img
             src={thumbnail}

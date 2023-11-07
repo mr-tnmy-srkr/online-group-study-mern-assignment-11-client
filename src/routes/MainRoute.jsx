@@ -28,11 +28,11 @@ const MainRoute = createBrowserRouter([
           },
           {
             path: 'assignments/view-assignment/:id',
-            element:  <ViewAssignment></ViewAssignment>,
+            element: <PrivateRoute><ViewAssignment></ViewAssignment></PrivateRoute>,
           },
           {
             path: 'assignments/update-assignment/:id',
-            element: <UpdateAssignment></UpdateAssignment>,
+            element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
           },
           {
             path: 'about',

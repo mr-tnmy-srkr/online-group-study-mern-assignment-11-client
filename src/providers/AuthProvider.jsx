@@ -1,5 +1,5 @@
 import {
-    GithubAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -8,13 +8,11 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { createContext } from "react";
 import auth from "../config/firebase.config";
 import { useEffect } from "react";
 import { useState } from "react";
-import useAxios from "../hooks/useAxios";
-import axios from "axios";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -23,8 +21,8 @@ const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-console.log(user);
-// const axios = useAxios()
+  console.log(user);
+  // const axios = useAxios()
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -43,8 +41,8 @@ console.log(user);
     return signInWithPopup(auth, githubProvider);
   };
 
- //update user profile
- const updateUserProfile = (name, photo) => {
+  //update user profile
+  const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -58,23 +56,8 @@ console.log(user);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = currentUser?.email || user?.email;
-      const loggedUser = { email: userEmail };
       setUser(currentUser);
       setLoading(false);
-
-      if (currentUser) {
-        axios.post("http://localhost:5000/api/v1/auth/access-token",loggedUser,
-        { withCredentials: true})
-          .then((res) => {
-            console.log("token response", res.data);
-          })
-        }else {
-          axios.post("http://localhost:5000/api/v1/auth/user/logout",loggedUser,
-          { withCredentials: true })
-            .then((res) => console.log(res.data));
-        }
-
     });
 
     return () => {
@@ -97,6 +80,6 @@ console.log(user);
   );
 };
 AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired
-  };
+  children: PropTypes.node.isRequired,
+};
 export default AuthProvider;

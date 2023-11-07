@@ -5,6 +5,7 @@ import useAuth from "../hooks/useAuth";
 import Lottie from "lottie-react";
 import SocialLogin from "../components/SocialLogin";
 import toast from "react-hot-toast";
+import useAxios from "../hooks/useAxios";
 
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
   const { signIn, logOut } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const axios = useAxios()
 
   console.log(email, password);
 
@@ -24,10 +26,14 @@ const Login = () => {
       const user = await signIn(email, password);
       console.log(user);
       console.log(user.user.email);
-      if (user.user) {
+      const res = await axios.post("/auth/access-token", {
+        email: user.user.email,
+      });
+      console.log(res);
+  
         toast.success("Logged in successful", { id: toastId });
         navigate(location?.state ? location.state : "/");
-      }
+ 
     } catch (error) {
       toast.error(error.message, { id: toastId });
     }

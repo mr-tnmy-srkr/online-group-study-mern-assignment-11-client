@@ -1,23 +1,25 @@
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import Lottie from "lottie-react";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import createAnimation from "../assets/animations/Animation - 1699267425557.json";
 import DatePicker from "react-datepicker";
 import { useMutation } from "@tanstack/react-query";
 import useAxios from "../hooks/useAxios";
+import { useNavigate } from "react-router-dom";
 
 const CreateAssignment = () => {
   const { user } = useAuth();
   console.log(user.email);
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [marks, setMarks] = useState("");
   const [date, setDate] = useState("");
-  const [DifficultyLevel, setDifficultyLevel] = useState("");
+  const [DifficultyLevel, setDifficultyLevel] = useState("Easy");
   const [description, setDescription] = useState("");
-  const axios = useAxios()
+  const axios = useAxios();
+  const navigate = useNavigate();
 
   console.log(title, thumbnail, marks, date, DifficultyLevel, description);
 
@@ -27,8 +29,9 @@ const CreateAssignment = () => {
       return axios.post("/user/create-assignment", assignmentData);
     },
     onSuccess: () => {
-      toast.success('Assignment creation successful')
-    }
+      toast.success("Assignment creation successful");
+      navigate("/assignments");
+    },
   });
 
   return (
@@ -43,7 +46,7 @@ const CreateAssignment = () => {
             />
           </div>
           <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto">
-            <form className="card-body" >
+            <form className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Title</span>
@@ -86,12 +89,12 @@ const CreateAssignment = () => {
                 <label className="label">
                   <span className="label-text">Due Date</span>
                 </label>
-                 <input
+                <input
                   type="date"
                   className="input input-bordered"
                   required
                   onInput={(e) => setDate(e.target.value)}
-                /> 
+                />
                 {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
               </div>
               <div className="form-control">
@@ -102,9 +105,9 @@ const CreateAssignment = () => {
                   className="input input-bordered"
                   onChange={(e) => setDifficultyLevel(e.target.value)}
                 >
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
+                  <option>Easy</option>
+                  <option>Medium</option>
+                  <option>Hard</option>
                 </select>
               </div>
               <div className="form-control">
@@ -131,12 +134,12 @@ const CreateAssignment = () => {
                       date,
                       DifficultyLevel,
                       description,
-                      user : user.email
+                      user: user.email,
                     })
                   }
                   className="btn button button.active bg-[#fc9f11]"
                 >
-                Create Assignment
+                  Create Assignment
                 </button>
               </div>
             </form>

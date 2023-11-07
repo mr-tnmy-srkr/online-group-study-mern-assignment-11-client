@@ -5,6 +5,7 @@ import { useState } from "react";
 import SocialLogin from "../components/SocialLogin";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
+import useAxios from "../hooks/useAxios";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -14,6 +15,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
+  const axios = useAxios()
   console.log(userName, email, photoUrl, password, confirmPassword);
 
   const handleSubmit = async (e) => {
@@ -30,10 +32,13 @@ const Register = () => {
       const user = await createUser(email, password);
       const updateUser = await updateUserProfile(userName, photoUrl);
       console.log(user.user);
-      if (user.user) {
+      const res = await axios.post("/auth/access-token", {
+        email: user.user.email,
+      }); 
+      console.log(res);
         toast.success("User Created Successfully", { id: toastId });
         navigate("/");
-      }
+   
     } catch (error) {
       console.log(error);
       toast.error(error.message, { id: toastId });

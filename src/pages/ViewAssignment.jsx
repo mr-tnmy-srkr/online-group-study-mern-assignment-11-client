@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
+import toast from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
 
 
 const ViewAssignment = () => {
@@ -9,7 +11,8 @@ const ViewAssignment = () => {
   const [loading, setLoading] = useState(true);
   const axios = useAxios();
   const { id } = useParams();
-  const { title, thumbnail, marks, date, difficultyLevel, description } = data;
+  const {_id, title, thumbnail, marks, date, difficultyLevel, description } = data;
+  const navigate = useNavigate()
   useEffect(() => {
     axios
       .get(`/assignments/${id}`)
@@ -21,6 +24,32 @@ const ViewAssignment = () => {
         console.log(error);
       });
   }, [axios, id]);
+
+const handleDelete = async(id)=>{
+console.log(id);
+const res = await axios.delete(`/user/delete-assignment/${id}`)
+console.log(res.data);
+
+if(res.data.deletedCount>0){
+  toast.success('Assignment deleted successfully')
+  navigate(-1)
+}else{
+  toast.error('This Assignment is not created by you')
+}
+} 
+ /* const {mutate} = useMutation({
+  mutationKey: ["booking"],
+  mutationFn: async (id) => {
+   const res = await axios.delete(`/user/delete-assignment/${id}`)
+    return res
+  },
+  onSuccess: () => {
+    toast.success('Delete Bookings Done')
+    navigate(-1)
+    // queryClient.invalidateQueries({queryKey:["booking"]})
+  }
+})  */
+
 
   return (
     <>
@@ -61,7 +90,7 @@ const ViewAssignment = () => {
               </div>
             </div>
             <div className="absolute -mt-2 left-[90%] md:left-[95%]  lg:left-[97%] top-0 transform -translate-x-1/2 -translate-y-1/2">
-              <button className="btn text-white  btn-outline bg-red-500 ">
+              <button onClick={()=>handleDelete(_id)} className="btn text-white  btn-outline bg-red-500 ">
               Delete
               </button>
             </div>

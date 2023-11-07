@@ -3,15 +3,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
-
 const instance = axios.create({
   baseURL: "http://localhost:5000/api/v1",
   withCredentials: true,
 });
 
 const useAxios = () => {
-
-  const { logout } = useAuth();
+  const { logOut } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const useAxios = () => {
         console.log("error tracked in the interceptor", error.response);
         if (error.response.status === 401 || error.response.status === 403) {
           console.log("log out the user");
-          logout()
+          logOut()
             .then(() => {
               navigate("/login");
             })
@@ -37,7 +35,7 @@ const useAxios = () => {
         }
       }
     );
-  }, [logout, navigate]);
+  }, [logOut, navigate]);
   return instance;
 };
 

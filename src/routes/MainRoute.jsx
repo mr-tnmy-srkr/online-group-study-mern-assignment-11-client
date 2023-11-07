@@ -10,6 +10,7 @@ import LoginPrivate from "./LoginPrivate";
 import CreateAssignment from "../pages/CreateAssignment";
 import PrivateRoute from "./privateRoute";
 import UpdateAssignment from "../pages/UpdateAssignment";
+import ViewAssignment from "../pages/ViewAssignment";
 
 const MainRoute = createBrowserRouter([
     {
@@ -26,9 +27,12 @@ const MainRoute = createBrowserRouter([
             element: <Assignments></Assignments>,
           },
           {
+            path: 'assignments/view-assignment/:id',
+            element:  <ViewAssignment></ViewAssignment>,
+          },
+          {
             path: 'assignments/update-assignment/:id',
             element: <UpdateAssignment></UpdateAssignment>,
-            // loader: (params)=>fetch(`http://localhost:5000/api/v1/assignments/${params.id}`)
           },
           {
             path: 'about',

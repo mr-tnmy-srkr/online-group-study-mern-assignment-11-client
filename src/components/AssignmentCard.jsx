@@ -50,9 +50,11 @@ const AssignmentCard = ({ assignment }) => {
           </p>
         </div>
         <div className="flex justify-between">
+        <Link to={`/assignments/view-assignment/${_id}`}>
           <button className="btn button button.active bg-[#fc9f11]">
             View Assignment
           </button>
+          </Link>
           <Link to={`/assignments/update-assignment/${_id}`}>
             <button className="btn button button.active bg-[#fc9f11]">
               Update Assignment

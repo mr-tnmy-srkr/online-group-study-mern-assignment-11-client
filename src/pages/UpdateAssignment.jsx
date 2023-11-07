@@ -1,5 +1,5 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import Lottie from "lottie-react";
 import createAnimation from "../assets/animations/Animation - 1699267425557.json";
@@ -9,8 +9,8 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 const UpdateAssignment = () => {
-  const [data,setData] = useState({})
-  const [loading,setLoading] = useState(true)
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
   const axios = useAxios();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,33 +19,17 @@ const UpdateAssignment = () => {
 
   const { user } = useAuth();
 
-  // console.log(user.email);
-  // const [startDate, setStartDate] = useState(new Date());
-/* 
-  const getAssignment = async () => {
-    const res = await axios.get(`/assignments/${id}`);
-    return res;
-  };
-
-  const { data: assignment, isLoading } = useQuery({
-    queryKey: ["getAssignment",],
-    queryFn: getAssignment,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["getAssignment"] });
-    },
-  }); */
-
-useEffect(()=>{
-  axios.get(`/assignments/${id}`)
-  .then((response)=> {
-   setData(response.data);
-   setLoading(false)
-  })
-  .catch((error)=> {
-    console.log(error);
-  });
-
-},[axios, id])
+  useEffect(() => {
+    axios
+      .get(`/assignments/${id}`)
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [axios, id]);
 
   // console.log(data?.difficultyLevel);
 
@@ -67,10 +51,10 @@ useEffect(()=>{
       difficultyLevel,
       description,
       user: user.email,
-    })
+    });
   };
 
-const { mutate } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["updateAssignment"],
     mutationFn: async (assignmentData) => {
       return axios.put(`/assignments/update-assignment/${id}`, assignmentData);
@@ -80,7 +64,7 @@ const { mutate } = useMutation({
       toast.success("Assignment update successful");
       navigate("/assignments");
     },
-  })
+  });
 
   return (
     <div>
@@ -166,30 +150,17 @@ const { mutate } = useMutation({
                   <label className="label">
                     <span className="label-text">Difficulty Level</span>
                   </label>
-               {/*    <select
+                  <select
                     name="difficulty"
-                    className="input input-bordered"
                     defaultValue={data?.difficultyLevel}
+                    className="input input-bordered"
                     required
                   >
                     <option value="">Select a Level</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
-                  </select> */}
-
-                  <select
-                  name="difficulty"
-                  defaultValue={data.difficultyLevel}
-                  className="block w-full px-4 py-2 mt-2 border border-gray-200 rounded-md dark:bg-gray-200 dark:text-black dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                  required
-                >
-                  <option value="">Select a Level</option>
-                  <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-
+                  </select>
                 </div>
                 <div className="form-control">
                   <label className="label">

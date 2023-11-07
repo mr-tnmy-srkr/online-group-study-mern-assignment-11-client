@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
  import animation from "../assets/animations/Animation - 1699238965247.json"
+import { Link } from "react-router-dom";
 const Banner = () => {
     return (
        <div className="flex items-center pt-10 md:pt-0 justify-center md:justify-evenly bg-slate-300 flex-col md:flex-row">
@@ -9,7 +10,7 @@ const Banner = () => {
             to learn
             </span>
             <br />
-            <button className="mt-5 btn bg-[#fc9f11] button.active button border-none">Assignments</button>
+            <Link to="/assignments"><button className="mt-5 btn bg-[#fc9f11] button.active button border-none">Assignments</button></Link>
         </h1>
        </div>
          <div className="max-w-[500px] flex-1">

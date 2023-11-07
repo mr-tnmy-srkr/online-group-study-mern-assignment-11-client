@@ -13,7 +13,7 @@ const ViewAssignment = () => {
   const axios = useAxios();
   const { id } = useParams();
   const { user } = useAuth();
-  // console.log(user.email);
+  // console.log(user);
   const { _id, title, thumbnail, marks, date, difficultyLevel, description } =
     data;
   const navigate = useNavigate();
@@ -53,11 +53,13 @@ const ViewAssignment = () => {
       link,
       note,
       status: "pending",
+      userName:user.displayName,
       user: user.email,
       title,
       thumbnail,
       marks,
-      date: new Date(),
+      dueDate : date,
+      submissionDate: new Date(),
       difficultyLevel,
     }
 

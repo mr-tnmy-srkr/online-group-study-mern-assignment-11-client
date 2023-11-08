@@ -13,6 +13,7 @@ import UpdateAssignment from "../pages/UpdateAssignment";
 import ViewAssignment from "../pages/ViewAssignment";
 import SubmittedAssignment from "../pages/SubmittedAssignment";
 import GiveMark from "../pages/GiveMark";
+import MyAssignment from "../pages/MyAssignment";
 
 const MainRoute = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const MainRoute = createBrowserRouter([
         element: (
           <PrivateRoute>
             <CreateAssignment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-assignment",
+        element: (
+          <PrivateRoute>
+            <MyAssignment />
           </PrivateRoute>
         ),
       },

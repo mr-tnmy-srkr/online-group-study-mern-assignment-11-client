@@ -66,8 +66,8 @@ const MyAssignment = () => {
                       <p>{item.myMark || "N/A"}</p>
                     </td>
                     <td className="px-3 py-2 border-b-2 border-gray-400 ">
-                      <textarea className="w-full h-24">
-                          {item.feedback}
+                      <textarea className="w-full h-24" defaultValue={item.feedback}>
+                        
                       </textarea>
                     </td>
                   </tr>

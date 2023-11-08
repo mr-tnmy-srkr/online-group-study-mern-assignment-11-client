@@ -40,7 +40,7 @@ const AssignmentCard = ({ assignment }) => {
 
           <p className="mt-6 mb-4 text-gray-900 min-h-[100px]">
             {description.slice(0, 125)}...
-            <Link
+            <Link to={`/assignments/view-assignment/${_id}`}
               className={`${
                 description.length < 125 && "hidden"
               } m-1 animate-pulse rounded-md bg-[#fc9f11] px-2 text-white font-light no-underline shadow-md shadow-amber-500/40 hover:animate-none hover:text-black hover:shadow-amber-500/80`}

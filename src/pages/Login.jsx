@@ -11,7 +11,7 @@ import useAxios from "../hooks/useAxios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signIn, logOut } = useAuth();
+  const { user,signIn, logOut } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const axios = useAxios()
@@ -23,13 +23,19 @@ const Login = () => {
     const toastId = toast.loading("Logging in ...");
 
     try {
-      const user = await signIn(email, password);
-      console.log(user);
-      console.log(user.user.email);
-      const res = await axios.post("/auth/access-token", {
-        email: user.user.email,
-      });
-      console.log(res);
+      const currentUser = await signIn(email, password);
+      console.log(currentUser);
+      console.log(currentUser.user.email);
+      
+
+        const res = await axios.post("/auth/access-token", {
+          email: currentUser.user.email,
+        });
+        console.log(res);
+      
+       /*  axios.post("/auth/logOut",{  email: user.user.email,})
+          .then((res) => console.log(res.data));
+      */
   
         toast.success("Logged in successful", { id: toastId });
         navigate(location?.state ? location.state : "/");

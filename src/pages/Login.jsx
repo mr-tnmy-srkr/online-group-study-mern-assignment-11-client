@@ -19,7 +19,7 @@ const Login = () => {
   const location = useLocation();
   const axios = useAxios()
 
-  console.log(email, password);
+  // console.log(email, password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,14 +27,14 @@ const Login = () => {
 
     try {
       const currentUser = await signIn(email, password);
-      console.log(currentUser);
-      console.log(currentUser.user.email);
+      // console.log(currentUser);
+      // console.log(currentUser.user.email);
       
 
         const res = await axios.post("/auth/access-token", {
           email: currentUser.user.email,
         });
-        console.log(res);
+        // console.log(res);
       
        /*  axios.post("/auth/logOut",{  email: user.user.email,})
           .then((res) => console.log(res.data));

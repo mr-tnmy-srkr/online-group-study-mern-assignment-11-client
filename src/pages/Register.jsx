@@ -19,7 +19,7 @@ const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const axios = useAxios();
-  console.log(userName, email, photoUrl, password, confirmPassword);
+  // console.log(userName, email, photoUrl, password, confirmPassword);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -43,15 +43,15 @@ const Register = () => {
     try {
       const user = await createUser(email, password);
       const updateUser = await updateUserProfile(userName, photoUrl);
-      console.log(user.user);
+      // console.log(user.user);
       const res = await axios.post("/auth/access-token", {
         email: user.user.email,
       });
-      console.log(res);
+      // console.log(res);
       toast.success("User Created Successfully", { id: toastId });
       navigate("/");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message, { id: toastId });
     }
   };

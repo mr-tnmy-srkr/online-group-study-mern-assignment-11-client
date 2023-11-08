@@ -2,14 +2,17 @@ import useAuth from "../hooks/useAuth";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
 import createAnimation from "../assets/animations/Animation - 1699267425557.json";
-import DatePicker from "react-datepicker";
 import { useMutation } from "@tanstack/react-query";
 import useAxios from "../hooks/useAxios";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 const CreateAssignment = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const { user } = useAuth();
-  console.log(user.email);
+  // console.log(user.email);
   const axios = useAxios();
   const navigate = useNavigate();
 
@@ -19,23 +22,22 @@ const CreateAssignment = () => {
     const title = form.title.value;
     const thumbnail = form.thumbnail.value;
     const marks = form.marks.value;
-    const date = form.date.value;
+    // const date = form.date.value;
     const difficultyLevel = form.difficulty.value;
     const description = form.description.value;
-    console.log(title, thumbnail, marks, date, difficultyLevel, description);
+    // console.log(title, thumbnail, marks, date, difficultyLevel, description);
     mutate({
-          title,
-          thumbnail,
-          marks,
-          date,
-          difficultyLevel,
-          description,
-          user: user.email,
-        })
-      };
+      title,
+      thumbnail,
+      marks,
+      date: startDate,
+      difficultyLevel,
+      description,
+      user: user.email,
+    });
+  };
 
-
-   const { mutate } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["assignment"],
     mutationFn: async (assignmentData) => {
       return axios.post("/user/create-assignment", assignmentData);
@@ -44,7 +46,11 @@ const CreateAssignment = () => {
       toast.success("Assignment creation successful");
       navigate("/assignments");
     },
-  }); 
+  });
+
+  // Set the minimum and maximum selectable date to November 11, 2023
+  const minSelectableDate = new Date(new Date());
+  const maxSelectableDate = new Date("2023-12-31");
 
   return (
     <div>
@@ -101,19 +107,29 @@ const CreateAssignment = () => {
                 <label className="label">
                   <span className="label-text">Due Date</span>
                 </label>
-                <input
+                {/*  <input
                   type="date"
                   name="date"
                   className="input input-bordered"
                   required
+                /> */}
+                <DatePicker
+                  className="input input-bordered w-full required"
+                  selected={startDate}
+                  minDate={minSelectableDate}
+                  maxDate={maxSelectableDate}
+                  onChange={(date) => setStartDate(date)}
                 />
-                {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Difficulty Level</span>
                 </label>
-                <select name="difficulty" className="input input-bordered" required>
+                <select
+                  name="difficulty"
+                  className="input input-bordered"
+                  required
+                >
                   <option value="">Select a Level</option>
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>

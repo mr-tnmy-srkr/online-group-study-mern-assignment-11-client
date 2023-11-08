@@ -48,7 +48,7 @@ const SubmittedAssignment = () => {
                     </td>
 
                     <td className="px-3 py-2 border-b-2 border-gray-400">
-                      <p>{item.dueDate}</p>
+                      <p>{ParseDate(item.dueDate)}</p>
                     </td>
                     <td className="px-3 py-2 border-b-2 border-gray-400">
                       <p>{ParseDate(item.submissionDate)}</p>

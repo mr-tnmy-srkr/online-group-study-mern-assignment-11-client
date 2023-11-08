@@ -30,9 +30,9 @@ const ViewAssignment = () => {
   }, [axios, id]);
 
   const handleDelete = async (id) => {
-    console.log(id);
+    // console.log(id);
     const res = await axios.delete(`/user/delete-assignment/${id}`);
-    console.log(res.data);
+    // console.log(res.data);
 
     if (res.data.deletedCount > 0) {
       toast.success("Assignment deleted successfully");
@@ -65,7 +65,7 @@ const ViewAssignment = () => {
 
     try {
       const res = await axios.post("/user/submit-assignment", submittedData);
-      console.log(res);
+      // console.log(res);
       if (res.data) {
         toast.success("Assignment submission successful");
         form.reset();
@@ -156,12 +156,23 @@ const ViewAssignment = () => {
               </div>
             </div>
             <div className="flex-1  border-2 ">
-              <div className=" h-[50vh] overflow-auto p-5 ">
-                <p>Level : {difficultyLevel}</p>
-                <h1>{title}</h1>
-                <p>{marks}</p>
-                <p>Due Date : {date}</p>
-                <p>{description}</p>
+              <div className=" h-[50vh] overflow-auto p-5 space-y-5 relative">
+                {/* <p className="text-2xl font-medirm">Level : {difficultyLevel}</p> */}
+
+                <p
+          style={{
+            clipPath:
+              "polygon(100% 0%, 90% 50%, 100% 100%, 25% 100%, 9% 50%, 25% 0%)",
+          }}
+          className="absolute font-bold text-xl bg-yellow-400 px-8 py-2 right-4"
+        >
+          {difficultyLevel}
+        </p>
+
+                <h1 className="text-3xl font-semibold ">{title}</h1>
+                <p className="text-xl"><span className="text-xl font-semibold">Full Marks : </span>  {marks}</p>
+                <p className="text-xl"><span className="text-xl font-semibold">Due Date : </span>  {date}</p>
+                <p ><span className="text-xl font-semibold">Details : </span> {description}</p>
               </div>
             </div>
             <div className="absolute -mt-2 left-[90%] md:left-[95%]  lg:left-[97%] top-0 transform -translate-x-1/2 -translate-y-1/2">

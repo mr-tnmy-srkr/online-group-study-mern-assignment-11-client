@@ -15,11 +15,11 @@ const SocialLogin = () => {
     const toastId = toast.loading("Logging in ...");
     try {
       const user = await media()
-      console.log("see",user);
+      // console.log("see",user);
       const res = await axios.post("/auth/access-token", {
         email: user.user.email,
       });
-      console.log(res);
+      // console.log(res);
     
         toast.success("Logged in successful", { id: toastId });
         navigate(location?.state ? location.state : '/')

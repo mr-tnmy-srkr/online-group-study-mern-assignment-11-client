@@ -115,7 +115,7 @@ const ViewAssignment = () => {
                   className="modal modal-bottom sm:modal-middle px-4"
                 >
                   <div className="modal-box ">
-                    <h3 className="font-bold text-lg mb-5">
+                    <h3 className="font-bold text-lg mb-5 text-center">
                       Please submit Your Assignment link
                     </h3>
                     <form
@@ -123,7 +123,8 @@ const ViewAssignment = () => {
                       onSubmit={handleSubmitAssignment}
                       className="space-y-5"
                     >
-                      <input
+                     <div className="text-center space-y-5">
+                     <input
                         type="text"
                         name="link"
                         placeholder="Pdf Link"
@@ -140,6 +141,7 @@ const ViewAssignment = () => {
                       <button type="submit" className="btn  btn-warning">
                         Submit Assignment
                       </button>
+                     </div>
                     </form>
                     <div className="modal-action">
                       <form>

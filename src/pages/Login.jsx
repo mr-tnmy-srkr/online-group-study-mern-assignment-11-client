@@ -6,12 +6,15 @@ import Lottie from "lottie-react";
 import SocialLogin from "../components/SocialLogin";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
+import { BiShow } from "react-icons/bi";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { user,signIn, logOut } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const axios = useAxios()
@@ -62,18 +65,30 @@ const Login = () => {
               autoComplete="on"
             />
           </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+               type={showPassword ? "text" : "password"}
               placeholder="🔑 Password"
               className="input input-bordered"
               autoComplete="on"
               required
               onInput={(e) => setPassword(e.target.value)}
             />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                // onMouseUp={() => setShowPassword(false)}
+                // onMouseLeave={() => setShowPassword(false)}
+                className="absolute bottom-3 right-3 cursor-pointer"
+              >
+                {showPassword ? (
+                  <AiOutlineEyeInvisible size={25} />
+                ) : (
+                  <BiShow size={25} />
+                )}
+              </span>
           </div>
           <p className="text-center text-sm">
             Don&apos;t have an account ?{" "}

@@ -19,7 +19,7 @@ const MyAssignment = () => {
       return res;
     },
   });
-  //   console.log(data.data.userName);
+    // console.log(data.data.length);
 
   return (
     <>
@@ -41,9 +41,6 @@ const MyAssignment = () => {
                   <th className="p-3">Total Marks</th>
                   <th className="p-3">Obtain Marks</th>
                   <th className="p-3">Examiner Feedback</th>
-                  {/* <th className="p-3">View Details Feedback</th> */}
-                  {/* <th className="p-3">Status</th> */}
-                  {/* <th className="p-3">Action</th> */}
                 </tr>
               </thead>
               <tbody className="bg-slate-200 text-black">
@@ -57,7 +54,7 @@ const MyAssignment = () => {
                     </td>
 
                     <td className={`px-3 py-2 border-b-2 border-gray-400 `}>
-                      <p className={`${item.status==="success"?"bg-green-500":" bg-yellow-400"} max-w-min px-4 rounded-xl`}>{item.status}</p>
+                      <p className={`${item.status==="success"?"bg-green-500":" bg-yellow-400"} max-w-min capitalize px-4 rounded-xl`}>{item.status}</p>
                     </td>
                     <td className="px-3 py-2 border-b-2 border-gray-400">
                       <p>{item.marks}</p>
@@ -66,7 +63,7 @@ const MyAssignment = () => {
                       <p>{item.myMark || "N/A"}</p>
                     </td>
                     <td className="px-3 py-2 border-b-2 border-gray-400 ">
-                      <textarea className="w-full h-24" defaultValue={item.feedback}>
+                      <textarea className="w-full h-24" defaultValue={item.feedback || "Coming soon"} >
                         
                       </textarea>
                     </td>
@@ -77,6 +74,16 @@ const MyAssignment = () => {
           </div>
         </div>
       )}
+
+      {isFetching ? " " : 
+        
+        !(data.data.length) ? (
+        <div className="min-h-[40vh] flex justify-center items-center">
+          <p className="text-2xl font-bold">{`Sorry your didn't submit any assignment`}</p>
+        </div>
+      ) : ""
+      }
+
     </>
   );
 };

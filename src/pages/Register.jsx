@@ -6,6 +6,8 @@ import SocialLogin from "../components/SocialLogin";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
+import { BiShow } from "react-icons/bi";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -13,17 +15,27 @@ const Register = () => {
   const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
-  const axios = useAxios()
+  const axios = useAxios();
   console.log(userName, email, photoUrl, password, confirmPassword);
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (confirmPassword !== password) {
-      toast.error("Confirm password should be same with password");
+    //password validation
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters!");
       return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error("Password should have at least one uppercase character!");
+      return;
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      toast.error("Password should have at least one special character!");
+      return;
+    } else if (password !== confirmPassword) {
+      return toast.error("Confirm password should be same as password!");
     }
 
     const toastId = toast.loading("Creating user ...");
@@ -34,11 +46,10 @@ const Register = () => {
       console.log(user.user);
       const res = await axios.post("/auth/access-token", {
         email: user.user.email,
-      }); 
+      });
       console.log(res);
-        toast.success("User Created Successfully", { id: toastId });
-        navigate("/");
-   
+      toast.success("User Created Successfully", { id: toastId });
+      navigate("/");
     } catch (error) {
       console.log(error);
       toast.error(error.message, { id: toastId });
@@ -49,7 +60,7 @@ const Register = () => {
     <div>
       <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto">
         <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-          <form className="card-body" onSubmit={handleSubmit}>
+          <form className="card-body" onSubmit={handleRegister}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -89,18 +100,29 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="🔑 Password"
                 className="input input-bordered"
                 autoComplete="on"
                 required
                 onInput={(e) => setPassword(e.target.value)}
               />
+
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute bottom-3 right-3 cursor-pointer"
+              >
+                {showPassword ? (
+                  <AiOutlineEyeInvisible size={25} />
+                ) : (
+                  <BiShow size={25} />
+                )}
+              </span>
             </div>
             <div className="form-control">
               <label className="label">
@@ -114,6 +136,7 @@ const Register = () => {
                 required
                 onInput={(e) => setConfirmPassword(e.target.value)}
               />
+              
             </div>
             <p className="text-center text-sm">
               Already have an account ?{" "}

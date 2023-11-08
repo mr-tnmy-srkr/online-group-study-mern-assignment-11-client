@@ -87,7 +87,7 @@ try {
           </div>
         </div>
       )}
-        <PdfComp pdf={pdfForm}></PdfComp>
+        {/* <PdfComp pdf={pdfForm}></PdfComp> */}
       
     </div>
   );

@@ -116,7 +116,7 @@ const NavItems = () => {
 
             <div
               onClick={logOut}
-              className="cursor-pointer btn text-white bg-red-500 px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
+              className="cursor-pointer mt-3 btn text-white bg-red-500 px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
             >
               Logout
             </div>

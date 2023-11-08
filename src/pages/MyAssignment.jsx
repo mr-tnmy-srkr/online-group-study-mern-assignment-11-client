@@ -54,7 +54,7 @@ const MyAssignment = () => {
                     </td>
 
                     <td className={`px-3 py-2 border-b-2 border-gray-400 `}>
-                      <p className={`${item.status==="success"?"bg-green-500":" bg-yellow-400"} max-w-min capitalize px-4 rounded-xl`}>{item.status}</p>
+                      <p className={`${item.status==="completed"?"bg-green-500":" bg-yellow-400"} max-w-min capitalize px-4 rounded-xl`}>{item.status}</p>
                     </td>
                     <td className="px-3 py-2 border-b-2 border-gray-400">
                       <p>{item.marks}</p>

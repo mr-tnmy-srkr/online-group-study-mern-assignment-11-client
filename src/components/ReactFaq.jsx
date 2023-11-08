@@ -45,7 +45,7 @@ const config = {
 
 const ReactFaq = () => {
     return (
-        <>
+        <div className="w-11/12 mx-auto mb-8">
         <Title>Frequently asked Question</Title>
         <div className="px-4 md:px-0">
            <Faq
@@ -54,7 +54,7 @@ const ReactFaq = () => {
                 config={config}
             />  
         </div>
-        </>
+        </div>
     );
 };
 

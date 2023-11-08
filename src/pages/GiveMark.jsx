@@ -31,7 +31,7 @@ try {
     const response = await axios.put(`/assignments/marking-assignment/${id}`, {
       myMark: mark,
       feedback,
-      status:"success"
+      status:"completed"
     });
     console.log(response.data);
     if(response.data.modifiedCount>0){

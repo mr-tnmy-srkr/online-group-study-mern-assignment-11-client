@@ -66,7 +66,8 @@ const AuthProvider = ({ children }) => {
       if (!currentUser) {
         axios
           .post(
-            "http://localhost:5000/api/v1/auth/logOut",loggedUser,
+            "http://localhost:5000/api/v1/auth/user/logOut",
+            loggedUser,
             { withCredentials: true }
           )
           .then((res) => console.log(res.data));
@@ -75,7 +76,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [user?.email]);
 
   const authInfo = {
     user,

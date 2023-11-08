@@ -42,52 +42,39 @@ const ViewAssignment = () => {
     }
   };
 
-  const handleSubmitAssignment = async(e) => {
+  const handleSubmitAssignment = async (e) => {
     e.preventDefault();
     // console.log(id);
     const form = e.target;
     const link = form.link.value;
     const note = form.note.value;
     // console.log(link, note);
-   const submittedData = {
+    const submittedData = {
       link,
       note,
       status: "pending",
-      userName:user.displayName,
+      userName: user.displayName,
       user: user.email,
       title,
       thumbnail,
       marks,
-      dueDate : date,
+      dueDate: date,
       submissionDate: new Date(),
       difficultyLevel,
-    }
+    };
 
     try {
       const res = await axios.post("/user/submit-assignment", submittedData);
       console.log(res);
-  if(res.data){
+      if (res.data) {
         toast.success("Assignment submission successful");
-        form.reset()
+        form.reset();
         document.getElementById("my_modal_5").close();
-  }
+      }
     } catch (error) {
       toast.error(error.message);
     }
-
   };
-
-
-  /* const { mutate } = useMutation({
-    mutationKey: ["assignment"],
-    mutationFn: async (submittedAssignmentData) => {
-      return axios.post("/user/submit-assignment", submittedAssignmentData);
-    },
-    onSuccess: () => {
-      toast.success("Assignment creation successful");
-      document.getElementById("my_modal_5").close();
-    },
-  });  */
 
   return (
     <>
@@ -104,15 +91,15 @@ const ViewAssignment = () => {
           />
         </div>
       ) : (
-        <div className="py-10 px-4">
+        <div className="py-10 px-4 lg:px-0">
           <div className="flex flex-col md:flex-row items-center justify-between relative border p-6">
-            <div className="flex-1 w-full relative">
+            <div className="flex-1 w-full ">
               <img
                 className="w-full md:w-[35vw] max-h-[50vh]"
                 src={thumbnail}
                 alt=""
               />
-              <div className="text-center  absolute left-1/2  transform -translate-x-1/2 -translate-y-1/2">
+              <div className="  absolute left-1/2 -bottom-12 transform -translate-x-1/2 -translate-y-1/2">
                 <button
                   onClick={() =>
                     document.getElementById("my_modal_5").showModal()
@@ -131,7 +118,11 @@ const ViewAssignment = () => {
                     <h3 className="font-bold text-lg mb-5">
                       Please submit Your Assignment link
                     </h3>
-                    <form action="" onSubmit={handleSubmitAssignment} className="space-y-5">
+                    <form
+                      action=""
+                      onSubmit={handleSubmitAssignment}
+                      className="space-y-5"
+                    >
                       <input
                         type="text"
                         name="link"

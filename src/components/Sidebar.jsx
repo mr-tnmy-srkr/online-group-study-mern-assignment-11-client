@@ -10,22 +10,22 @@ const Sidebar = () => {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-            : "btn btn-ghost btn-sm "
+            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+            : "btn btn-ghost btn-sm text-lg"
         }
       >
-        Home
+      🏠  Home
       </NavLink>
 
       <NavLink
         to="/assignments"
         className={({ isActive }) =>
           isActive
-            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-            : "btn btn-ghost btn-sm "
+            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+            : "btn btn-ghost btn-sm text-lg"
         }
       >
-        Assignments
+       🖼  Assignments
       </NavLink>
 
       {user && (
@@ -34,32 +34,32 @@ const Sidebar = () => {
             to="/create-assignment"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Create Assignment
+          ✍️  Create Assignment
           </NavLink>
         
           <NavLink
             to="/my-assignment"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            My Assignments
+          🖼️  My Assignments
           </NavLink>
           <NavLink
             to="/submitted-assignment"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Submitted Assignments
+          📝  Submitted Assignments
           </NavLink>
         </>
       )}
@@ -70,21 +70,21 @@ const Sidebar = () => {
             to="/login"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Login
+          🔑  Login
           </NavLink>
           <NavLink
             to="/signup"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Signup
+          🔐  Signup
           </NavLink>
         </>
       )}
@@ -92,9 +92,9 @@ const Sidebar = () => {
         <NavLink
           onClick={logOut}
           className=
-               "btn  btn-sm btn-ghost border-none text-black hover:bg-orange-600"
+               "btn  btn-sm btn-ghost border-none text-black hover:bg-orange-600 text-lg"
         >
-          Logout
+        ❕  Logout
         </NavLink>
       )}
     </>

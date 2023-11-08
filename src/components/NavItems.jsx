@@ -10,22 +10,22 @@ const NavItems = () => {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-            : "btn btn-ghost btn-sm "
+            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+            : "btn btn-ghost btn-sm text-lg"
         }
       >
-        Home
+       🏠 Home
       </NavLink>
 
       <NavLink
         to="/assignments"
         className={({ isActive }) =>
           isActive
-            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-            : "btn btn-ghost btn-sm "
+            ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+            : "btn btn-ghost btn-sm text-lg"
         }
       >
-        Assignments
+      🖼 Assignments
       </NavLink>
 
       {!user && (
@@ -34,21 +34,21 @@ const NavItems = () => {
             to="/login"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Login
+          🔑  Login
           </NavLink>
           <NavLink
             to="/signup"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Signup
+          🔐  Signup
           </NavLink>
         </>
       )}
@@ -58,32 +58,32 @@ const NavItems = () => {
             to="/create-assignment"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Create Assignment
+          ✍️  Create Assignment
           </NavLink>
         
           <NavLink
             to="/my-assignment"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            My Assignments
+          🖼️  My Assignments
           </NavLink>
           <NavLink
             to="/submitted-assignment"
             className={({ isActive }) =>
               isActive
-                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600"
-                : "btn btn-ghost btn-sm"
+                ? "btn  btn-sm bg-[#FC9F11] border-none text-white hover:bg-orange-600 text-lg"
+                : "btn btn-ghost btn-sm text-lg"
             }
           >
-            Submitted Assignments
+          📝   Submitted Assignments
           </NavLink>
         </>
       )}
@@ -103,20 +103,20 @@ const NavItems = () => {
           >
             <NavLink
               // to="/user"
-              className="px-4 py-2 hover:bg-base-300 rounded-lg"
+              className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
             >
               Profile
             </NavLink>
             <NavLink
-              // to="/user/orders"
-              className="px-4 py-2 hover:bg-base-300 rounded-lg"
+              to="/my-assignment"
+              className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
             >
-              Orders
+              My Assignment
             </NavLink>
 
             <div
               onClick={logOut}
-              className="cursor-pointer text-red-500 px-4 py-2 hover:bg-base-300 rounded-lg"
+              className="cursor-pointer btn text-white bg-red-500 px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
             >
               Logout
             </div>

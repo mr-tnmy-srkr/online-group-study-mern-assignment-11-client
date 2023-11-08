@@ -3,7 +3,6 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import PdfComp from "../utils/PdfComp";
 
-import pdfForm from "../assets/pdf.pdf"
 import toast from "react-hot-toast";
 
 const GiveMark = () => {

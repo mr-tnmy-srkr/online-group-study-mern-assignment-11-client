@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
   return (
     <div className="">
       {user && (
-        <marquee className="text-center text-white bg-black py-2 font-medium">
+        <marquee className="text-center text-white bg-blue-400 py-2 font-medium">
           🙂🙂Welcome Mr. {user.displayName} 🙋‍♂️. Now You Can Create,Take,Submit
           and Review Your Assignment🙂🙂
         </marquee>
@@ -63,20 +63,20 @@ const MainLayout = ({ children }) => {
                   >
                     <NavLink
                       // to="/user"
-                      className="px-4 py-2 hover:bg-base-300 rounded-lg"
+                      className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
                     >
                       Profile
                     </NavLink>
                     <NavLink
                       // to="/user/orders"
-                      className="px-4 py-2 hover:bg-base-300 rounded-lg"
+                      className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
                     >
                       Orders
                     </NavLink>
 
                     <div
                       onClick={logOut}
-                      className="cursor-pointer text-red-500 px-4 py-2 hover:bg-base-300 rounded-lg"
+                      className="cursor-pointer btn text-white bg-red-500 px-4 py-2 text-lg font-semibold hover:bg-base-300 rounded-lg"
                     >
                       Logout
                     </div>
@@ -104,7 +104,7 @@ const MainLayout = ({ children }) => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 menu-vertical">
+          <ul className="menu p-4 w-80 min-h-full bg-base-200 menu-vertical space-y-4">
             {/* Sidebar content here */}
             <Sidebar></Sidebar>
           </ul>

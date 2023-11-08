@@ -63,7 +63,7 @@ const Assignments = () => {
             <GrPrevious></GrPrevious>
           </button>
           {isLoading ? (
-            <p>Loading....</p>
+          " "
           ) : (
             [...Array(totalPage).keys()].map((item, idx) => {
               const pageNumber = idx + 1;

@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Toggle from "../utils/Toggle";
 
 const NavItems = () => {
   const { user, logOut } = useAuth();
@@ -123,6 +124,12 @@ const NavItems = () => {
           </div>
         </div>
       )}
+        
+
+<div className="">
+<Toggle></Toggle>
+</div>
+
     </>
   );
   return NavItems;

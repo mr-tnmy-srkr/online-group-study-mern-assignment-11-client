@@ -59,20 +59,20 @@ const CreateAssignment = () => {
         <title>Create Assignment</title>
         <meta name="description" content="Helmet application" />
     </Helmet>
-      <div className="my-10">
-        <div className="flex flex-col md:flex-row justify-center">
-          <div className="w-[300px] md:w-[400px] lg:w-[500px] flex items-center justify-center mx-auto">
+      <div className="my-10 ">
+        <div className="flex flex-col md:flex-row justify-center ">
+          <div className="w-[300px] md:w-[400px] lg:w-[500px] flex items-center justify-center mx-auto ">
             <Lottie
               className="  "
               animationData={createAnimation}
               loop={true}
             />
           </div>
-          <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto">
-            <form className="card-body" onSubmit={handleCreateAssignment}>
+          <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto dark:bg-gray-300">
+            <form className="card-body " onSubmit={handleCreateAssignment}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Title</span>
+                  <span className="label-text font-semibold">Title</span>
                 </label>
                 <input
                   type="text"
@@ -84,7 +84,7 @@ const CreateAssignment = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Thumbnail</span>
+                  <span className="label-text font-semibold">Thumbnail</span>
                 </label>
                 <input
                   type="text"
@@ -96,7 +96,7 @@ const CreateAssignment = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Marks</span>
+                  <span className="label-text font-semibold">Marks</span>
                 </label>
                 <input
                   type="number"
@@ -110,7 +110,7 @@ const CreateAssignment = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Due Date</span>
+                  <span className="label-text font-semibold">Due Date</span>
                 </label>
                 {/*  <input
                   type="date"
@@ -128,7 +128,7 @@ const CreateAssignment = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Difficulty Level</span>
+                  <span className="label-text font-semibold">Difficulty Level</span>
                 </label>
                 <select
                   name="difficulty"
@@ -143,7 +143,7 @@ const CreateAssignment = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Description</span>
+                  <span className="label-text font-semibold">Description</span>
                 </label>
                 <textarea
                   rows={12}

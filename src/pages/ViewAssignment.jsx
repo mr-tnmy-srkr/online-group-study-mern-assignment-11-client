@@ -97,7 +97,7 @@ const ViewAssignment = () => {
         </div>
       ) : (
         <div className="py-10 px-4 lg:px-0">
-          <div className="flex flex-col md:flex-row items-center justify-between relative border p-6">
+          <div className="flex flex-col md:flex-row items-center justify-between relative border p-6 dark:text-white">
             <div className="flex-1 w-full ">
               <img
                 className="w-full md:w-[35vw] max-h-[50vh]"

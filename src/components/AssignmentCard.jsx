@@ -16,7 +16,7 @@ const AssignmentCard = ({ assignment }) => {
   //   console.log(Object.keys(assignment).join());
   return (
     <div className="">
-      <div className="relative flex-col group max-w-2xl rounded-3xl border border-gray-100 bg-gray-200 p-6 shadow-2xl  sm:p-8">
+      <div className="relative flex-col group max-w-2xl rounded-3xl border border-gray-100 bg-gray-200 p-6 shadow-2xl dark:border-gray-700 dark:bg-gray-900 dark:shadow-none sm:p-8">
         {/* <p style={{clipPath: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%)}} className="absolute font-bold text-xl bg-yellow-400 px-3 py-2 ">{difficultyLevel}</p> */}
         <p
           style={{
@@ -49,7 +49,7 @@ const AssignmentCard = ({ assignment }) => {
             Total Marks : {marks || "N/A"}
           </h3>
 
-          <p className="mt-6 mb-4 text-gray-900 min-h-[100px]">
+          <p className="mt-6 mb-4 text-gray-900 min-h-[100px] dark:text-gray-300">
             {description?.slice(0, 125)}...
             <Link
               to={`/assignments/view-assignment/${_id}`}

@@ -95,11 +95,11 @@ const UpdateAssignment = () => {
                 loop={true}
               />
             </div>
-            <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto">
+            <div className="flex-1  card max-w-md shadow-2xl bg-base-100 mx-auto dark:bg-[#D1D5DB]">
               <form className="card-body" onSubmit={handleUpdateAssignment}>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Title</span>
+                    <span className="label-text font-bold">Title</span>
                   </label>
                   <input
                     type="text"
@@ -112,7 +112,7 @@ const UpdateAssignment = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Thumbnail</span>
+                    <span className="label-text font-bold">Thumbnail</span>
                   </label>
                   <input
                     type="text"
@@ -125,7 +125,7 @@ const UpdateAssignment = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Marks</span>
+                    <span className="label-text font-bold">Marks</span>
                   </label>
                   <input
                     type="number"
@@ -140,7 +140,7 @@ const UpdateAssignment = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Due Date</span>
+                    <span className="label-text font-bold">Due Date</span>
                   </label>
                   <input
                     type="date"
@@ -153,7 +153,7 @@ const UpdateAssignment = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Difficulty Level</span>
+                    <span className="label-text font-bold">Difficulty Level</span>
                   </label>
                   <select
                     name="difficulty"
@@ -169,7 +169,7 @@ const UpdateAssignment = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Description</span>
+                    <span className="label-text font-bold">Description</span>
                   </label>
                   <textarea
                     rows={12}

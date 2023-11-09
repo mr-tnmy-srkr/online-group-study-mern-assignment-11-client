@@ -3,7 +3,7 @@ import animation from "../assets/animations/Animation - 1699238965247.json";
 import { Link } from "react-router-dom";
 const Banner = () => {
   return (
-    <div className="flex items-center pt-10 md:pt-0 justify-center md:justify-evenly rounded-b-lg bg-slate-300 flex-col md:flex-row">
+    <div className="flex items-center pt-10 md:pt-0 justify-center md:justify-evenly rounded-b-lg bg-slate-300 flex-col md:flex-row dark:bg-gray-600">
       <div>
         <h1 className="flex-1 text-5xl font-semibold text-center">
           This is the new way <br />{" "}

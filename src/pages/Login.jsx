@@ -50,16 +50,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto w-full">
+    <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto w-full dark:bg-gray-700">
      <Helmet>
         <title>Study Buzz - Login</title>
         <meta name="description" content="Helmet application" />
     </Helmet>
-      <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+      <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 dark:bg-gray-400">
         <form className="card-body" onSubmit={handleSubmit}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text font-bold">Email</span>
             </label>
             <input
               type="email"
@@ -72,7 +72,7 @@ const Login = () => {
           </div>
           <div className="form-control relative">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text font-bold">Password</span>
             </label>
             <input
                type={showPassword ? "text" : "password"}
@@ -99,7 +99,7 @@ const Login = () => {
             Don&apos;t have an account ?{" "}
             <Link
               to="/signup"
-              className=" font-bold hover:underline cursor-pointer text-[#fc9f11]"
+              className=" font-bold hover:underline cursor-pointer text-[#fc9f11] text-xl dark:text-blue-800"
             >
               Sign Up
             </Link>

@@ -63,12 +63,12 @@ const Register = () => {
         <title>Study Buzz - Signup</title>
         <meta name="description" content="Helmet application" />
     </Helmet>
-      <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto">
-        <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+      <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto dark:bg-gray-700">
+        <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 dark:bg-gray-400">
           <form className="card-body" onSubmit={handleRegister}>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text font-bold">Name</span>
               </label>
               <input
                 type="name"
@@ -81,7 +81,7 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo url</span>
+                <span className="label-text font-bold">Photo url</span>
               </label>
               <input
                 type="photo"
@@ -94,7 +94,7 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text font-bold">Email</span>
               </label>
               <input
                 type="email"
@@ -107,7 +107,7 @@ const Register = () => {
             </div>
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text font-bold">Password</span>
               </label>
               <input
                 type={showPassword ? "text" : "password"}
@@ -131,7 +131,7 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Confirm Password</span>
+                <span className="label-text font-bold">Confirm Password</span>
               </label>
               <input
                 type="password"
@@ -147,13 +147,13 @@ const Register = () => {
               Already have an account ?{" "}
               <Link
                 to="/login"
-                className="text-[#fc9f11] font-bold hover:underline cursor-pointer "
+                className="text-[#fc9f11] font-bold hover:underline cursor-pointer text-xl dark:text-blue-800"
               >
                 Login
               </Link>
             </p>
             <div className="form-control mt-2">
-              <button type="submit" className="btn  button bg-[#fc9f11]">
+              <button type="submit" className="btn  button bg-[#fc9f11">
                 Sign up
               </button>
             </div>

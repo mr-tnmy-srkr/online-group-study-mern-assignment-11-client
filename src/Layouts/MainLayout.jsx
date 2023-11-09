@@ -5,6 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Footer from "../components/Footer";
+import Toggle from "../utils/Toggle";
 
 const MainLayout = ({ children }) => {
   const { user, logOut } = useAuth();
@@ -21,7 +22,7 @@ const MainLayout = ({ children }) => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="w-full navbar bg-base-300">
+          <div className="w-full navbar bg-base-300 dark:bg-gray-400">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -46,6 +47,7 @@ const MainLayout = ({ children }) => {
             <div className="flex-1 px-2 mx-2">
               <Logo></Logo>
             </div>
+       
             <div className="lg:hidden">
               {/* avatar fot small and medium device */}
               {user && (
@@ -83,6 +85,9 @@ const MainLayout = ({ children }) => {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="lg:hidden">
+              <Toggle></Toggle>
             </div>
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal flex items-center ">

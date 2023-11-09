@@ -52,45 +52,45 @@ const GiveMark = () => {
       {isLoading ? (
         ""
       ) : (
-        <div className="flex justify-between lg:border-4 min-h-[70vh] flex-col gap-5 md:gap-0 my-8  lg:flex-row">
+        <div className="flex justify-between lg:border-4 min-h-[70vh] flex-col gap-5 md:gap-0 my-8  lg:flex-row dark:text-gray-800 dark:bg-gray-500">
           <div className="flex-1 lg:border px-4">
-            <h1 className=" text-3xl py-5 text-[#fc9f11] underline text-center">
+            <h1 className=" text-3xl py-5 text-[#fc9f11] underline text-center dark:text-blue-800 font-bold">
               Examinee Section
             </h1>
             <h2>
-              <span className="text-xl font-semibold">Assignment Title :</span>
+              <span className="text-xl font-semibold">1. Assignment Title :</span>
 
               <br />
-              <Link className="text-lg ">{data.data.title}</Link>
+              <Link className="text-lg ml-5 ">{data.data.title}</Link>
             </h2>
             <br />
             <h2>
-              <span className="text-xl font-semibold">Total Marks :</span>
-
-              <Link className="text-lg "> {data.data.marks}</Link>
+              <span className="text-xl font-semibold">2. Total Marks :</span>
+<br />
+              <Link className="text-lg ml-5 "> {data.data.marks}</Link>
             </h2>
             <br />
             <h2 className="flex items-center">
               <span className="text-xl font-semibold mr-2">
-                {`Assignment's Pdf Link : `}
+                {`3. Assignment's Pdf Link : `}
               </span>
-                <span>
-                  <ModalComp></ModalComp>
-                </span>
+              <span>
+                <ModalComp></ModalComp>
+              </span>
             </h2>
 
-            <br />
-            <p className="text-lg ">{data.data.link}</p>
+          
+            <p className="text-lg ml-5 ">{data.data.link}</p>
             <br />
 
             <h2>
-              <span className="text-xl font-semibold ">Examinee Note : </span>
+              <span className="text-xl font-semibold ">4. Examinee Note : </span>
               <br />
-              <span className="text-lg "> {data.data.note} </span>
+              <span className="text-lg ml-5 "> {data.data.note} </span>
             </h2>
           </div>
           <div className="flex-1 lg:border text-center space-y-5 px-4">
-            <h1 className="text-3xl py-5 text-[#fc9f11] underline">
+            <h1 className="text-3xl py-5 text-[#fc9f11] underline dark:text-blue-800 font-bold">
               Examiner Section
             </h1>
             <form action="" onSubmit={handleGiveMark} className="space-y-5">

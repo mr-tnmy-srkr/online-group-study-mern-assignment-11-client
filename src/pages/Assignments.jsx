@@ -64,7 +64,7 @@ const Assignments = () => {
 
       <div className="mb-8 text-right mr-3">
         <div className="join outline rounded-full border-primary">
-          <button onClick={handlePrev} className="join-item btn btn-ghost">
+          <button onClick={handlePrev} className="join-item btn btn-ghost dark:bg-warning">
             <GrPrevious></GrPrevious>
           </button>
           {isLoading
@@ -77,15 +77,15 @@ const Assignments = () => {
                     key={pageNumber}
                     className={`${
                       pageNumber === page
-                        ? "join-item btn btn-primary"
-                        : "join-item btn btn-ghost"
+                        ? "join-item btn btn-primary dark:bg-blue-500"
+                        : "join-item btn btn-ghost dark:bg-yellow-500"
                     }`}
                   >
                     {pageNumber}
                   </button>
                 );
               })}
-          <button onClick={handleNext} className="join-item btn btn-ghost">
+          <button onClick={handleNext} className="join-item btn btn-ghost dark:bg-warning">
             <GrNext></GrNext>
           </button>
         </div>

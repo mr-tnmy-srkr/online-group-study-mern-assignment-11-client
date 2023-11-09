@@ -20,7 +20,7 @@ export default function ModalComp() {
         <button
           type="button"
           onClick={openModal}
-          className="rounded-md btn bg-[#fc9f11] px-4 py-2 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="rounded-md btn btn-sm bg-[#fc9f11]  text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
         Show Preview
         </button>

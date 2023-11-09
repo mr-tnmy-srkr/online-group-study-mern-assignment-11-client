@@ -31,8 +31,8 @@ const MyAssignment = () => {
       {isFetching ? (
         ""
       ) : (
-        <div className=" md:px-0 w-full sm:p-4 text-gray-100 mb-5">
-          <h2 className="mb-4 text-2xl font-semibold leadi text-black text-center">
+        <div className=" md:px-0 w-full sm:p-4 text-gray-100 mb-5 dark:text-gray-100">
+          <h2 className="mb-4 text-2xl font-semibold leadi text-black text-center dark:text-gray-400">
             Examinee : {user.displayName}
           </h2>
           <div className="w-[98vw] lg:w-full mx-auto border-4  overflow-x-auto">
@@ -48,27 +48,27 @@ const MyAssignment = () => {
                   <th className="p-3">Examiner Feedback</th>
                 </tr>
               </thead>
-              <tbody className="bg-slate-200 text-black">
+              <tbody className="bg-slate-200 text-black dark:bg-gray-900 dark:border-gray-700">
                 {data.data.map((item, idx) => (
                   <tr key={item._id} className="text-lg">
-                    <td className="px-3 text-xl font-medium border-b-2 border-gray-400 text-gray-800">
+                    <td className="px-3 text-xl font-medium border-b-2 border-gray-400 text-gray-800 dark:text-gray-400 ">
                       {idx + 1}.
                     </td>
-                    <td className="px-3 py-2 border-b-2 border-gray-400">
+                    <td className="px-3 py-2 border-b-2 border-gray-400 dark:text-gray-400 ">
                       <p>{item.title}</p>
                     </td>
 
                     <td className={`px-3 py-2 border-b-2 border-gray-400 `}>
                       <p className={`${item.status==="completed"?"bg-green-500":" bg-yellow-400"} max-w-min capitalize px-4 rounded-xl`}>{item.status}</p>
                     </td>
-                    <td className="px-3 py-2 border-b-2 border-gray-400">
+                    <td className="px-3 py-2 border-b-2 border-gray-400 dark:text-gray-400">
                       <p>{item.marks}</p>
                     </td>
-                    <td className="px-3 py-2 border-b-2 border-gray-400">
+                    <td className="px-3 py-2 border-b-2 border-gray-400 dark:text-gray-400">
                       <p>{item.myMark || "N/A"}</p>
                     </td>
                     <td className="px-3 py-2 border-b-2 border-gray-400 ">
-                      <textarea className="w-full h-24" defaultValue={item.feedback || "Coming soon"} >
+                      <textarea className="w-full h-24 bg-white p-2 dark:bg-gray-500" disabled defaultValue={item.feedback || "Coming soon"} >
                         
                       </textarea>
                     </td>

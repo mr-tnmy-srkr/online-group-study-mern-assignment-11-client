@@ -30,11 +30,11 @@ const data = {
 };
 
 const styles = {
-    bgColor: '',
-    titleTextColor: "rgb(252,159,17)",
+    bgColor: 'rgb(203,213,225)',
+    titleTextColor: "black",
     rowTitleColor: "blue",
-    rowContentColor: 'grey',
-    arrowColor: "rgb(252,159,17)",
+    rowContentColor: 'black',
+    arrowColor: "",
 };
 
 const config = {
@@ -45,14 +45,19 @@ const config = {
 
 const ReactFaq = () => {
     return (
-        <div className="w-11/12 mx-auto mb-8">
+        <div className=" mx-auto">
         <Title>Frequently asked Question</Title>
-        <div className="px-4 md:px-0">
-           <Faq
+        <div className=" md:px-0">
+          <div className="  rounded-lg">
+         <div className="p-12 rounded-lg bg-[#CBD5E1]">
+         <Faq
                 data={data}
                 styles={styles}
                 config={config}
+                
             />  
+         </div>
+          </div>
         </div>
         </div>
     );

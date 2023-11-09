@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   // const axios = useAxios()
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(user);
+  // console.log(user);
   // const axios = useAxios()
 
   const createUser = (email, password) => {

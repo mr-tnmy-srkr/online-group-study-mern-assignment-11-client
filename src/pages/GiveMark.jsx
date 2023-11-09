@@ -1,15 +1,16 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
-import PdfComp from "../utils/PdfComp";
 
 import toast from "react-hot-toast";
+import ShowPdf from "../components/ShowPdf";
+import ModalComp from "../components/ModalComp";
 
 const GiveMark = () => {
   const axios = useAxios();
 
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const navigate = useNavigate();
 
   const { data, isError, isLoading, error } = useQuery({
@@ -57,16 +58,33 @@ const GiveMark = () => {
               Examinee Section
             </h1>
             <h2>
-              <span className="text-xl font-semibold">
-                Examinee Pdf Link :{" "}
-              </span>
+              <span className="text-xl font-semibold">Assignment Title :</span>
 
               <br />
-              <Link className="text-lg ">{data.data.link}</Link>
+              <Link className="text-lg ">{data.data.title}</Link>
             </h2>
             <br />
             <h2>
-              <span className="text-xl font-semibold ">Examinee Note : </span>{" "}
+              <span className="text-xl font-semibold">Total Marks :</span>
+
+              <Link className="text-lg "> {data.data.marks}</Link>
+            </h2>
+            <br />
+            <h2 className="flex items-center">
+              <span className="text-xl font-semibold mr-2">
+                {`Assignment's Pdf Link : `}
+              </span>
+                <span>
+                  <ModalComp></ModalComp>
+                </span>
+            </h2>
+
+            <br />
+            <p className="text-lg ">{data.data.link}</p>
+            <br />
+
+            <h2>
+              <span className="text-xl font-semibold ">Examinee Note : </span>
               <br />
               <span className="text-lg "> {data.data.note} </span>
             </h2>
@@ -98,7 +116,6 @@ const GiveMark = () => {
           </div>
         </div>
       )}
-      {/* <PdfComp pdf={pdfForm}></PdfComp> */}
     </div>
   );
 };

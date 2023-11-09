@@ -2,7 +2,7 @@ import {  BiSun } from "react-icons/bi";
 import {  MdDarkMode } from "react-icons/md";
 import { useTheme } from "../hooks/useTheme";
 
-export default function Toggle() {
+export default function DarkMode() {
   const { changeTheme, mode } = useTheme();
 
   return (

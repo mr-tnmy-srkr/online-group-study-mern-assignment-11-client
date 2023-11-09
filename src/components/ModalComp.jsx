@@ -1,17 +1,16 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import ShowPdf from './ShowPdf'
-// import PDFViewer from '../utils/PDFViewer'
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import PropTypes from "prop-types";
 
-export default function ModalComp() {
-  let [isOpen, setIsOpen] = useState(false)
+export default function ModalComp({ link }) {
+  let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   return (
@@ -22,7 +21,7 @@ export default function ModalComp() {
           onClick={openModal}
           className="rounded-md btn btn-sm bg-[#fc9f11]  text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
-        Show Preview
+          Show Preview
         </button>
       </div>
 
@@ -39,7 +38,6 @@ export default function ModalComp() {
           >
             <div className="fixed inset-0 bg-black/25" />
           </Transition.Child>
-          
 
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
@@ -52,7 +50,7 @@ export default function ModalComp() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-3xl  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-6xl  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -61,18 +59,22 @@ export default function ModalComp() {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-<ShowPdf></ShowPdf>                    
-{/* <PDFViewer></PDFViewer> */}
+                      <iframe
+                        src={link}
+                        style={{ width: "100%", height: "500px" }}
+                        className="w-full"
+                        title="Iframe Example"
+                      ></iframe>
                     </p>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="mt-4 text-center">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent btn button text-white bg-[#fc9f11] px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                   Close
+                      Close
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -82,5 +84,8 @@ export default function ModalComp() {
         </Dialog>
       </Transition>
     </>
-  )
+  );
 }
+ModalComp.propTypes = {
+  link: PropTypes.string.isRequired,
+};

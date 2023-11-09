@@ -5,7 +5,6 @@ import { Bars } from "react-loader-spinner";
 import toast from "react-hot-toast";
 import { ImCross } from "react-icons/im";
 import useAuth from "../hooks/useAuth";
-import { useMutation } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 
 const ViewAssignment = () => {
@@ -119,7 +118,7 @@ const ViewAssignment = () => {
                   id="my_modal_5"
                   className="modal modal-bottom sm:modal-middle px-4"
                 >
-                  <div className="modal-box ">
+                  <div className="modal-box dark:text-black">
                     <h3 className="font-bold text-lg mb-5 text-center">
                       Please submit Your Assignment link
                     </h3>

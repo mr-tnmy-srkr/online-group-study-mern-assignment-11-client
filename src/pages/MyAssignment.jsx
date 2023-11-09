@@ -1,7 +1,6 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 const MyAssignment = () => {
@@ -9,7 +8,7 @@ const MyAssignment = () => {
   const axios = useAxios();
   const { user } = useAuth();
   // console.log(user.email);
-  const queryClient = useQueryClient();
+
 
   const { data, isFetching } = useQuery({
     queryKey: ["booking", user],
@@ -84,7 +83,7 @@ const MyAssignment = () => {
         
         !(data.data.length) ? (
         <div className="min-h-[40vh] flex justify-center items-center">
-          <p className="text-2xl font-bold">{`Sorry your didn't submit any assignment`}</p>
+          <p className="text-2xl font-bold dark:text-gray-200">{`Sorry your didn't submit any assignment`}</p>
         </div>
       ) : ""
       }

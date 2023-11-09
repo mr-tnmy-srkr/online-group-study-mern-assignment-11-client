@@ -75,7 +75,7 @@ const GiveMark = () => {
                 {`3. Assignment's Pdf Link : `}
               </span>
               <span>
-                <ModalComp></ModalComp>
+                <ModalComp link={data.data.link}></ModalComp>
               </span>
             </h2>
 

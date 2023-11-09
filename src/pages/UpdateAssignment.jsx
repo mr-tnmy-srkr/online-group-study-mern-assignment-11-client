@@ -8,18 +8,23 @@ import { Bars } from "react-loader-spinner";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import DatePicker from "react-datepicker";
+import ParseDate from "../utils/ParseDate";
+
 
 const UpdateAssignment = () => {
   const [data, setData] = useState({});
+  const oldDate = ParseDate(data?.date)
+  const [startDate, setStartDate] = useState(new Date(oldDate));
   const [loading, setLoading] = useState(true);
   const axios = useAxios();
   const { id } = useParams();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   // console.log(id);
-
+  
   const { user } = useAuth();
-
+  
   useEffect(() => {
     axios
       .get(`/assignments/${id}`)
@@ -30,9 +35,8 @@ const UpdateAssignment = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [axios, id]);
-
-  // console.log(data?.difficultyLevel);
+    }, [axios, id]);
+  
 
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
@@ -40,15 +44,15 @@ const UpdateAssignment = () => {
     const title = form.title.value;
     const thumbnail = form.thumbnail.value;
     const marks = form.marks.value;
-    const date = form.date.value;
+    // const date = form.date.value;
     const difficultyLevel = form.difficulty.value;
     const description = form.description.value;
-    console.log(title, thumbnail, marks, date, difficultyLevel, description);
+    // console.log(title, thumbnail, marks, date, difficultyLevel, description);
     mutate({
       title,
       thumbnail,
       marks,
-      date,
+      date:startDate,
       difficultyLevel,
       description,
       user: user.email,
@@ -66,6 +70,13 @@ const UpdateAssignment = () => {
       navigate("/assignments");
     },
   });
+
+
+ // Set the minimum and maximum selectable date to November 11, 2023
+ const minSelectableDate = new Date(new Date());
+ const maxSelectableDate = new Date("2023-12-31");
+
+// console.log(oldDate);
 
   return (
     <div>
@@ -142,13 +153,20 @@ const UpdateAssignment = () => {
                   <label className="label">
                     <span className="label-text font-bold">Due Date</span>
                   </label>
-                  <input
+                {/*   <input
                     type="date"
                     name="date"
                     defaultValue={data?.date}
                     className="input input-bordered"
                     required
-                  />
+                  /> */}
+                  <DatePicker
+                  className="input input-bordered w-full required"
+                  selected={new Date(oldDate)}
+                  minDate={minSelectableDate}
+                  maxDate={maxSelectableDate}
+                  onChange={(date) => setStartDate(date)}
+                />
                   {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
                 </div>
                 <div className="form-control">

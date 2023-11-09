@@ -1,10 +1,13 @@
+import PropTypes from 'prop-types';
+
+
 const FeaturedCard = ({image,title}) => {
   return (
     <div>
-      <div className="mt-4 max-w-md rounded-lg bg-gray-100 shadow-2xl dark:bg-gray-900">
+      <div className="mt-4  rounded-lg bg-gray-100 shadow-2xl dark:bg-gray-900">
         <div className="text-sm font-medium text-gray-400">
           <img
-            className="w-full rounded-t-lg"
+            className="w-full h-72 rounded-t-lg"
             src={image}
           />
         </div>
@@ -31,4 +34,8 @@ const FeaturedCard = ({image,title}) => {
   );
 };
 
+FeaturedCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 export default FeaturedCard;

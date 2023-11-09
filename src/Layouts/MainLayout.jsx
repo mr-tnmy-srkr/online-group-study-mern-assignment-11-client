@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import Logo from "../components/Logo";
 import NavItems from "../components/NavItems";
 import Sidebar from "../components/Sidebar";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Footer from "../components/Footer";
-import Toggle from "../utils/Toggle";
+import DarkMode from "../components/DarkMode";
 
 const MainLayout = ({ children }) => {
   const { user, logOut } = useAuth();
@@ -47,7 +47,7 @@ const MainLayout = ({ children }) => {
             <div className="flex-1 px-2 mx-2">
               <Logo></Logo>
             </div>
-       
+
             <div className="lg:hidden">
               {/* avatar fot small and medium device */}
               {user && (
@@ -69,16 +69,16 @@ const MainLayout = ({ children }) => {
                     >
                       Profile
                     </p>
-                    <NavLink
-                      // to="/user/orders"
+                    <Link
+                      to="/my-assignment"
                       className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
                     >
-                      Orders
-                    </NavLink>
+                    My Assignments
+                    </Link>
 
                     <div
                       onClick={logOut}
-                      className="cursor-pointer btn text-white bg-red-500 px-4 py-2 text-lg font-semibold hover:bg-base-300 rounded-lg"
+                      className="cursor-pointer btn mt-4 text-white bg-red-500 px-4 py-2 text-lg font-semibold hover:bg-base-300 rounded-lg"
                     >
                       Logout
                     </div>
@@ -87,7 +87,7 @@ const MainLayout = ({ children }) => {
               )}
             </div>
             <div className="lg:hidden">
-              <Toggle></Toggle>
+              <DarkMode></DarkMode>
             </div>
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal flex items-center ">
@@ -98,7 +98,7 @@ const MainLayout = ({ children }) => {
           </div>
           {/* Page content here */}
           {children}
-           {/* footer */}
+          {/* footer */}
           <div>
             <Footer></Footer>
           </div>

@@ -11,7 +11,6 @@ const AssignmentCard = ({ assignment }) => {
     date,
     difficultyLevel,
     description,
-    user,
   } = assignment || {};
   //   console.log(Object.keys(assignment).join());
   return (

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -54,6 +55,10 @@ const CreateAssignment = () => {
 
   return (
     <div>
+     <Helmet>
+        <title>Create Assignment</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <div className="my-10">
         <div className="flex flex-col md:flex-row justify-center">
           <div className="w-[300px] md:w-[400px] lg:w-[500px] flex items-center justify-center mx-auto">

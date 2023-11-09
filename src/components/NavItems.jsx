@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const NavItems = () => {
@@ -101,12 +101,12 @@ const NavItems = () => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <NavLink
+            <p
               // to="/user"
               className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"
             >
               Profile
-            </NavLink>
+            </p>
             <NavLink
               to="/my-assignment"
               className="px-4 py-2 hover:bg-base-300 rounded-lg text-lg font-semibold"

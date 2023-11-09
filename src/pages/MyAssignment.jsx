@@ -2,6 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const MyAssignment = () => {
   // /api/v1/user/submitted-assignments
@@ -23,6 +24,10 @@ const MyAssignment = () => {
 
   return (
     <>
+     <Helmet>
+        <title>My Assignments</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       {isFetching ? (
         ""
       ) : (

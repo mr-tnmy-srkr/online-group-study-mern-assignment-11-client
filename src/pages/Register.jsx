@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import { BiShow } from "react-icons/bi";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -58,6 +59,10 @@ const Register = () => {
 
   return (
     <div>
+     <Helmet>
+        <title>Study Buzz - Signup</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto">
         <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleRegister}>

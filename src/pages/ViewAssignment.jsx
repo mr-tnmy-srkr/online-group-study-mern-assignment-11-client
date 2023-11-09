@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { ImCross } from "react-icons/im";
 import useAuth from "../hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 const ViewAssignment = () => {
   const [data, setData] = useState([]);
@@ -78,6 +79,10 @@ const ViewAssignment = () => {
 
   return (
     <>
+     <Helmet>
+        <title>Take Assignment</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       {loading ? (
         <div className="h-[90vh] flex justify-center items-center">
           <Bars

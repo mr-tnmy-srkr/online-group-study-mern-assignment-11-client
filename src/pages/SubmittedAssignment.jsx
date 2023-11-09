@@ -2,6 +2,7 @@ import useAxios from "../hooks/useAxios";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import ParseDate from "../utils/ParseDate";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const SubmittedAssignment = () => {
   const axios = useAxios();
@@ -17,6 +18,10 @@ const SubmittedAssignment = () => {
 
   return (
     <>
+     <Helmet>
+        <title>Submitted Assignments</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       {isFetching ? (
         ""
       ) : (

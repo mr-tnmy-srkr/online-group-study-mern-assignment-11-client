@@ -4,6 +4,7 @@ import AssignmentCard from "../components/AssignmentCard";
 import { Bars } from "react-loader-spinner";
 import { useState } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import {Helmet} from "react-helmet";
 
 const Assignments = () => {
   const [page, setPage] = useState(1);
@@ -33,6 +34,10 @@ const Assignments = () => {
 
   return (
     <>
+     <Helmet>
+        <title>All Assignments</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       {isLoading ? (
         <div className="h-[90vh] flex justify-center items-center">
           <Bars

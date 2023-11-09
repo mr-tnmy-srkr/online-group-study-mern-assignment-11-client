@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import { BiShow } from "react-icons/bi";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
@@ -50,6 +51,10 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto w-full">
+     <Helmet>
+        <title>Study Buzz - Login</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
         <form className="card-body" onSubmit={handleSubmit}>
           <div className="form-control">

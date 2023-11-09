@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { Bars } from "react-loader-spinner";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const UpdateAssignment = () => {
   const [data, setData] = useState({});
@@ -68,6 +69,10 @@ const UpdateAssignment = () => {
 
   return (
     <div>
+     <Helmet>
+        <title>Update Assignment</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       {loading ? (
         <div className="h-[90vh] flex justify-center items-center">
           <Bars

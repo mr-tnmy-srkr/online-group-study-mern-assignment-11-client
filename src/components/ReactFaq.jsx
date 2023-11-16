@@ -47,7 +47,7 @@ const ReactFaq = () => {
     return (
         <div className=" mx-auto">
         <Title>Frequently asked Question</Title>
-        <h1  className="text-2xl text-center -mt-7 mb-4">(FAQ)</h1>
+        <h1  className="text-2xl text-center -mt-7 mb-4 dark:text-white">(FAQ)</h1>
         <div className=" md:px-0">
           <div className="  rounded-lg">
          <div className="p-12 rounded-lg bg-[#CBD5E1]">

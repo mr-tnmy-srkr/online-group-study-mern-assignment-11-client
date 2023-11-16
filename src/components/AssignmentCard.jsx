@@ -38,7 +38,7 @@ const AssignmentCard = ({ assignment }) => {
         </div>
         <div className="flex flex-col  mt-6">
           <h3 className="text-2xl font-semibold text-amber-800 ">
-            {title ? title.slice(0, 20) : "No title available"}
+            {title ? title.slice(0, 25) : "No title available"}
             {/* {title || "No title available"} */}
           </h3>
           <h3 className="text-lg font-semibold text-amber-800">

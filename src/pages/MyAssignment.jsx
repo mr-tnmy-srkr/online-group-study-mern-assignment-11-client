@@ -31,7 +31,7 @@ const MyAssignment = () => {
         ""
       ) : (
         <div className=" md:px-0 w-full sm:p-4 text-gray-100 mb-5 dark:text-gray-100">
-          <h2 className="mb-4 text-2xl font-semibold leadi text-black text-center dark:text-gray-400">
+          <h2 className=" py-4 md:pt-0 text-2xl font-semibold leadi text-black text-center dark:text-gray-400">
             Examinee : {user.displayName}
           </h2>
           <div className="w-[98vw] lg:w-full mx-auto border-4  overflow-x-auto">

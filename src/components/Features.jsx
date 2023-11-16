@@ -5,7 +5,7 @@ const Features = () => {
   return (
     <div className="my-6 px-4 lg:px-0">
       <Title>Our Main Features</Title>
-      <h1 className="text-2xl text-center -mt-7 mb-4">You can take exam of these topics</h1>
+      <h1 className="text-2xl text-center -mt-7 mb-4 dark:text-white">You can take exam of these topics</h1>
       {/* <div className="grid grid-cols-2 w-[99%] mx-auto"> */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div>

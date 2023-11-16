@@ -5,8 +5,8 @@ import useAuth from "./useAuth";
 
 const instance = axios.create({
   baseURL:
-    // "https://online-group-study-mern-assignment-11-server.vercel.app/api/v1",
-    "http://localhost:5000/api/v1",
+    "https://online-group-study-mern-assignment-11-server.vercel.app/api/v1",
+    // "http://localhost:5000/api/v1",
   withCredentials: true,
 });
 

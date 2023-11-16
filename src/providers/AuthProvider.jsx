@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
       if (!currentUser) {
         axios
           .post(
-            "http://localhost:5000/api/v1/auth/user/logOut",
+            "https://online-group-study-mern-assignment-11-server.vercel.app/api/v1/auth/user/logOut",
             loggedUser,
             { withCredentials: true }
           )

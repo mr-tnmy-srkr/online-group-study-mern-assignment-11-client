@@ -14,8 +14,7 @@ import ParseDate from "../utils/ParseDate";
 
 const UpdateAssignment = () => {
   const [data, setData] = useState({});
-  const oldDate = ParseDate(data?.date)
-  const [startDate, setStartDate] = useState(new Date(oldDate));
+  const [startDate, setStartDate] = useState();
   const [loading, setLoading] = useState(true);
   const axios = useAxios();
   const { id } = useParams();
@@ -52,7 +51,7 @@ const UpdateAssignment = () => {
       title,
       thumbnail,
       marks,
-      date:startDate,
+      date:startDate || new Date(oldDate),
       difficultyLevel,
       description,
       user: user.email,
@@ -75,6 +74,7 @@ const UpdateAssignment = () => {
  // Set the minimum and maximum selectable date to November 11, 2023
  const minSelectableDate = new Date(new Date());
  const maxSelectableDate = new Date("2023-12-31");
+ const oldDate = ParseDate(data?.date)
 
 // console.log(oldDate);
 
@@ -162,12 +162,12 @@ const UpdateAssignment = () => {
                   /> */}
                   <DatePicker
                   className="input input-bordered w-full required"
-                  selected={new Date(oldDate)}
+                  // here new Date(oldDate) is worked as default value
+                  selected={startDate || new Date(oldDate)}
                   minDate={minSelectableDate}
                   maxDate={maxSelectableDate}
                   onChange={(date) => setStartDate(date)}
                 />
-                  {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
                 </div>
                 <div className="form-control">
                   <label className="label">

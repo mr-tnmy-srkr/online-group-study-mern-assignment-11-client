@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { ImCross } from "react-icons/im";
 import useAuth from "../hooks/useAuth";
 import { Helmet } from "react-helmet";
+import ParseDate from "../utils/ParseDate";
 
 const ViewAssignment = () => {
   const [data, setData] = useState([]);
@@ -159,8 +160,8 @@ const ViewAssignment = () => {
                 </dialog>
               </div>
             </div>
-            <div className="flex-1  border-2 ">
-              <div className=" h-[50vh] overflow-auto p-5 space-y-5 relative">
+            <div className="flex-1 w-full border-2 ">
+              <div className=" h-[50vh] overflow-auto p-5 space-y-5 relative ">
                 {/* <p className="text-2xl font-medirm">Level : {difficultyLevel}</p> */}
 
                 <p
@@ -168,14 +169,14 @@ const ViewAssignment = () => {
             clipPath:
               "polygon(100% 0%, 90% 50%, 100% 100%, 25% 100%, 9% 50%, 25% 0%)",
           }}
-          className="absolute font-bold text-xl bg-yellow-400 px-8 py-2 right-4"
+          className="hidden md:block absolute font-bold text-xl bg-yellow-400 px-8 py-2 right-4"
         >
           {difficultyLevel}
         </p>
 
                 <h1 className="text-3xl font-semibold ">{title}</h1>
                 <p className="text-xl"><span className="text-xl font-semibold">Full Marks : </span>  {marks}</p>
-                <p className="text-xl"><span className="text-xl font-semibold">Due Date : </span>  {date}</p>
+                <p className="text-xl"><span className="text-xl font-semibold">Due Date : </span>  {ParseDate(date)}</p>
                 <p ><span className="text-xl font-semibold">Details : </span> {description}</p>
               </div>
             </div>

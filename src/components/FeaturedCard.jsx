@@ -13,12 +13,12 @@ const FeaturedCard = ({image,title}) => {
         </div>
         <div className="relative flex w-full items-center self-center overflow-hidden px-5 py-5 text-gray-600 focus-within:text-gray-400">
           <img
-            className="mr-2 h-12 w-12 cursor-pointer rounded-full border-2 border-amber-400 object-cover shadow"
+            className="mr-2 h-12 w-12 rounded-full border-2 border-amber-400 object-cover shadow"
             alt="User avatar"
             src={image}
           />
           <span className="text-2xl font-bold">{title}</span>
-          <span className="absolute right-6 flex h-8 w-8 cursor-pointer items-center rounded-full bg-amber-500/40 p-1 text-amber-400 backdrop-blur-md transition duration-300 ease-out hover:bg-amber-500 hover:text-white hover:shadow-lg hover:shadow-amber-500">
+          <span className="absolute right-6 flex h-8 w-8 items-center rounded-full bg-amber-500/40 p-1 text-amber-400 backdrop-blur-md transition duration-300 ease-out hover:bg-amber-500 hover:text-white hover:shadow-lg hover:shadow-amber-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

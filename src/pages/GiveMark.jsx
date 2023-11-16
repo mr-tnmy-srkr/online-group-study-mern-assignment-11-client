@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 
 import toast from "react-hot-toast";
-import ShowPdf from "../components/ShowPdf";
 import ModalComp from "../components/ModalComp";
 
 const GiveMark = () => {

@@ -8,9 +8,9 @@
 
 ### <span style=" color: #FA07EF">Code Link : </span>
 
-1. [Client Side Github Code Link](https://github.com/Porgramming-Hero-web-course/b8a11-client-side-mr-tnmy-srkr "https://github.com/Porgramming-Hero-web-course/b8a11-client-side-mr-tnmy-srkr")
+1. [Client Side Github Code Link](https://github.com/mr-tnmy-srkr/online-group-study-mern-assignment-11-client "https://github.com/mr-tnmy-srkr/online-group-study-mern-assignment-11-client")
 
-2. [Server Side Github Code Link](https://github.com/Porgramming-Hero-web-course/b8a11-server-side-mr-tnmy-srkr "https://github.com/Porgramming-Hero-web-course/b8a11-server-side-mr-tnmy-srkr")
+2. [Server Side Github Code Link](https://github.com/mr-tnmy-srkr/online-group-study-mern-assignment-11-server "https://github.com/mr-tnmy-srkr/online-group-study-mern-assignment-11-server")
 
 ---
 

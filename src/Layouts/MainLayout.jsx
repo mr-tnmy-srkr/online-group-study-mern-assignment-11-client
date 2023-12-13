@@ -1,8 +1,3 @@
-
-
-
-
-
 import PropTypes from "prop-types";
 import Logo from "../components/Logo";
 import NavItems from "../components/NavItems";
@@ -12,33 +7,17 @@ import useAuth from "../hooks/useAuth";
 import Footer from "../components/Footer";
 import DarkMode from "../components/DarkMode";
 
-import React from "react";
-// import MyComponent from "../components/MyComponent";
-import Marquee from "react-fast-marquee";
-
 const MainLayout = ({ children }) => {
   const { user, logOut } = useAuth();
 
   return (
     <div className="">
-      
-
-    
-
-const App = () => (
-  <Marquee>
-  {user && (
+      {user && (
         <marquee className="text-center text-white bg-blue-400 py-2 font-medium">
           🙂🙂Welcome Mr. {user.displayName} 🙋‍♂️. Now You Can Create,Take,Submit
           and Review Your Assignment🙂🙂
         </marquee>
       )}
-  </Marquee>
-);
-
-export default App;
-
-
       <div className="drawer -mt-1">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">

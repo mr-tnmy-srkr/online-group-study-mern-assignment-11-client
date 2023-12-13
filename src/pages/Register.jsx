@@ -59,10 +59,10 @@ const Register = () => {
 
   return (
     <div>
-     <Helmet>
+      <Helmet>
         <title>Study Buzz - Signup</title>
         <meta name="description" content="Helmet application" />
-    </Helmet>
+      </Helmet>
       <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto dark:bg-gray-700">
         <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 dark:bg-gray-400">
           <form className="card-body" onSubmit={handleRegister}>
@@ -141,7 +141,6 @@ const Register = () => {
                 required
                 onInput={(e) => setConfirmPassword(e.target.value)}
               />
-              
             </div>
             <p className="text-center text-sm">
               Already have an account ?{" "}

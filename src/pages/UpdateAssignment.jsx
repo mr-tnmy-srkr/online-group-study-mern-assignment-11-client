@@ -11,7 +11,6 @@ import { Helmet } from "react-helmet";
 import DatePicker from "react-datepicker";
 import ParseDate from "../utils/ParseDate";
 
-
 const UpdateAssignment = () => {
   const [data, setData] = useState({});
   const [startDate, setStartDate] = useState();
@@ -21,9 +20,9 @@ const UpdateAssignment = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   // console.log(id);
-  
+
   const { user } = useAuth();
-  
+
   useEffect(() => {
     axios
       .get(`/assignments/${id}`)
@@ -34,8 +33,7 @@ const UpdateAssignment = () => {
       .catch((error) => {
         console.log(error);
       });
-    }, [axios, id]);
-  
+  }, [axios, id]);
 
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
@@ -51,7 +49,7 @@ const UpdateAssignment = () => {
       title,
       thumbnail,
       marks,
-      date:startDate || new Date(oldDate),
+      date: startDate || new Date(oldDate),
       difficultyLevel,
       description,
       user: user.email,
@@ -70,20 +68,19 @@ const UpdateAssignment = () => {
     },
   });
 
+  // Set the minimum and maximum selectable date to November 11, 2023
+  const minSelectableDate = new Date(new Date());
+  const maxSelectableDate = new Date("2023-12-31");
+  const oldDate = ParseDate(data?.date);
 
- // Set the minimum and maximum selectable date to November 11, 2023
- const minSelectableDate = new Date(new Date());
- const maxSelectableDate = new Date("2023-12-31");
- const oldDate = ParseDate(data?.date)
-
-// console.log(oldDate);
+  // console.log(oldDate);
 
   return (
     <div>
-     <Helmet>
+      <Helmet>
         <title>Update Assignment</title>
         <meta name="description" content="Helmet application" />
-    </Helmet>
+      </Helmet>
       {loading ? (
         <div className="h-[90vh] flex justify-center items-center">
           <Bars
@@ -153,7 +150,7 @@ const UpdateAssignment = () => {
                   <label className="label">
                     <span className="label-text font-bold">Due Date</span>
                   </label>
-                {/*   <input
+                  {/*   <input
                     type="date"
                     name="date"
                     defaultValue={data?.date}
@@ -161,17 +158,19 @@ const UpdateAssignment = () => {
                     required
                   /> */}
                   <DatePicker
-                  className="input input-bordered w-full required"
-                  // here new Date(oldDate) is worked as default value
-                  selected={startDate || new Date(oldDate)}
-                  minDate={minSelectableDate}
-                  maxDate={maxSelectableDate}
-                  onChange={(date) => setStartDate(date)}
-                />
+                    className="input input-bordered w-full required"
+                    // here new Date(oldDate) is worked as default value
+                    selected={startDate || new Date(oldDate)}
+                    minDate={minSelectableDate}
+                    maxDate={maxSelectableDate}
+                    onChange={(date) => setStartDate(date)}
+                  />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text font-bold">Difficulty Level</span>
+                    <span className="label-text font-bold">
+                      Difficulty Level
+                    </span>
                   </label>
                   <select
                     name="difficulty"

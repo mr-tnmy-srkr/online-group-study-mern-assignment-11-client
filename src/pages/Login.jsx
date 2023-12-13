@@ -10,15 +10,14 @@ import { BiShow } from "react-icons/bi";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { Helmet } from "react-helmet";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user,signIn, logOut } = useAuth();
+  const {  signIn, } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const axios = useAxios()
+  const axios = useAxios();
 
   // console.log(email, password);
 
@@ -30,20 +29,18 @@ const Login = () => {
       const currentUser = await signIn(email, password);
       // console.log(currentUser);
       // console.log(currentUser.user.email);
-      
 
-        const res = await axios.post("/auth/access-token", {
-          email: currentUser.user.email,
-        });
-        // console.log(res);
-      
-       /*  axios.post("/auth/logOut",{  email: user.user.email,})
+      const res = await axios.post("/auth/access-token", {
+        email: currentUser.user.email,
+      });
+      // console.log(res);
+
+      /*  axios.post("/auth/logOut",{  email: user.user.email,})
           .then((res) => console.log(res.data));
       */
-  
-        toast.success("Logged in successful", { id: toastId });
-        navigate(location?.state ? location.state : "/");
- 
+
+      toast.success("Logged in successful", { id: toastId });
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
       toast.error(error.message, { id: toastId });
     }
@@ -51,10 +48,10 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-base-200 flex justify-evenly items-center p-10 mx-auto w-full dark:bg-gray-700">
-     <Helmet>
+      <Helmet>
         <title>Study Buzz - Login</title>
         <meta name="description" content="Helmet application" />
-    </Helmet>
+      </Helmet>
       <div className="card flex-1 flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 dark:bg-gray-400">
         <form className="card-body" onSubmit={handleSubmit}>
           <div className="form-control">
@@ -75,25 +72,25 @@ const Login = () => {
               <span className="label-text font-bold">Password</span>
             </label>
             <input
-               type={showPassword ? "text" : "password"}
+              type={showPassword ? "text" : "password"}
               placeholder="🔑 Password"
               className="input input-bordered"
               autoComplete="on"
               required
               onInput={(e) => setPassword(e.target.value)}
             />
-              <span
-                onClick={() => setShowPassword(!showPassword)}
-                // onMouseUp={() => setShowPassword(false)}
-                // onMouseLeave={() => setShowPassword(false)}
-                className="absolute bottom-3 right-3 cursor-pointer"
-              >
-                {showPassword ? (
-                  <AiOutlineEyeInvisible size={25} />
-                ) : (
-                  <BiShow size={25} />
-                )}
-              </span>
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              // onMouseUp={() => setShowPassword(false)}
+              // onMouseLeave={() => setShowPassword(false)}
+              className="absolute bottom-3 right-3 cursor-pointer"
+            >
+              {showPassword ? (
+                <AiOutlineEyeInvisible size={25} />
+              ) : (
+                <BiShow size={25} />
+              )}
+            </span>
           </div>
           <p className="text-center text-sm">
             Don&apos;t have an account ?{" "}

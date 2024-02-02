@@ -12,17 +12,17 @@ const Footer = () => {
               href="#"
               className="flex justify-center space-x-3 lg:justify-start"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-full">
-               
-              </div>
+              <div className="flex items-center justify-center w-12 h-12 rounded-full"></div>
               <span className="self-center text-2xl font-semibold">
-            <Logo></Logo>
+                <Logo></Logo>
               </span>
             </Link>
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="tracki uppercase text-[#fc9f11] font-semibold">Product</h3>
+              <h3 className="tracki uppercase text-[#fc9f11] font-semibold">
+                Product
+              </h3>
               <ul className="space-y-1">
                 <li>
                   <Link rel="noopener noreferrer" href="#">
@@ -47,7 +47,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <h3 className="tracki uppercase text-[#fc9f11] font-semibold">Company</h3>
+              <h3 className="tracki uppercase text-[#fc9f11] font-semibold">
+                Company
+              </h3>
               <ul className="space-y-1">
                 <li>
                   <Link rel="noopener noreferrer" href="#">
@@ -62,7 +64,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <h3 className="uppercase text-[#fc9f11] font-semibold">Developers</h3>
+              <h3 className="uppercase text-[#fc9f11] font-semibold">
+                Developers
+              </h3>
               <ul className="space-y-1">
                 <li>
                   <Link rel="noopener noreferrer" href="#">
@@ -82,7 +86,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <div className="uppercase text-[#fc9f11] font-semibold">Social media</div>
+              <div className="uppercase text-[#fc9f11] font-semibold">
+                Social media
+              </div>
               <div className="flex justify-start space-x-3">
                 <Link
                   rel="noopener noreferrer"

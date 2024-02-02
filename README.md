@@ -26,6 +26,43 @@
 
 ---
 
+## 🪶 <span style=" color: #fc9f11;font-size:25px">Key Features</span>
+- Create, update, participate and marking an assignment
+- Firebase authentication 
+- Pagination at all-assignment page
+- JWT token security
+
+
+## 🧑‍💻 <span style=" color: #fc9f11;font-size:25px">Technology Used<span>
+<p align="center">
+  <a href="">
+    <img src="https://skillicons.dev/icons?i=react,tailwind,firebase,express,mongodb" />
+  </a>
+</p>
+
+## <span style=" color: #fc9f11;font-size:25px">Other Technologies</span>
+
+###### DaisyUi | Axios | Tanstack Query,  etc
+
+## <span style=" color: #fc9f11;font-size:25px">Run the project in your system</span>
+
+### <span style=" color: #FA07EF">Client Side .env.local file example</span>
+
+VITE_APIKEY= "Your Firebase Api Key"   
+VITE_AUTHDOMAIN="Your Firebase domain"   
+VITE_PROJECTID="Your FireBase project Id"   
+VITE_STORAGEBUCKET= "Your Firebase Storage Bucket"   
+VITE_MESSAGINGSENDERID="Your Firebase Messaging Sender id"   
+VITE_APPID="Your Firebase App Id"   
+
+   
+
+### <span style=" color: #FA07EF">Server side .env file example</span>
+
+ DB_USER="Database (MongoDB) User Id"    
+ DB_PASS="Database (MongoDb) password"    
+ ACCESS_TOKEN_SECRET="JWT Secret Token"      
+
 
 ### <span style=" color: #fc9f11;font-size:25px"> Features and functionalities of my website : </span>
 
